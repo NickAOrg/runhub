@@ -1,0 +1,1719 @@
+{
+  "name": "Run Regional Hub",
+  "type": "automation",
+  "tasks": {
+    "2108": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Did child Job run successfully?",
+      "description": "Did child Job run successfully?",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "error",
+                  "operand_1": {
+                    "variable": "job_details",
+                    "task": "5d9d"
+                  },
+                  "operator": "!=",
+                  "operand_2": {
+                    "variable": true,
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.3811764705882353,
+      "y": 0.5639658848614072
+    },
+    "2337": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "buildRunRegionalHubJobDescription",
+      "description": "buildRunRegionalHubJobDescription",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e15fbf6cdd285d5d39a935",
+          "variableMap": {
+            "designations": "$var.efb4.filePath"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "jobDescription": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.20947630922693267,
+      "y": 0.5643879173290938,
+      "task_name": "buildRunRegionalHubJobDescription",
+      "retrySettings": null
+    },
+    "4676": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": -0.20365752285951788,
+      "y": 0.9054054054054054,
+      "scheduled": false
+    },
+    "5872": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "GetChildJobLoopReports",
+      "description": "GetChildJobLoopReports",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63f3d4f859b8702a8c6b78ce",
+          "variableMap": {
+            "childJobDetails": "$var.34df.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "report": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.8156862745098039,
+      "y": 0.12153518123667377,
+      "task_name": "GetChildJobLoopReports",
+      "retrySettings": null
+    },
+    "6055": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.8203921568627451,
+      "y": 0.31663113006396587,
+      "scheduled": false
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": -0.6159600997506235,
+      "y": 0.5643879173290938
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.9796078431372551,
+      "y": 0.5671641791044776
+    },
+    "73fe": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "error",
+          "value": true
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.5195344970906068,
+      "y": 0.5643879173290938
+    },
+    "efb4": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "runRegionalHubFormData",
+      "description": "runRegionalHubFormData",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63daa8ff99d6ef6162a28b49",
+          "variableMap": {
+            "formData": "$var.job.formData"
+          },
+          "options": {
+            "extractOutput": false,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "runFile": null,
+          "filePath": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.38320864505403157,
+      "y": 0.5643879173290938,
+      "task_name": "internetReduceParentFormData",
+      "retrySettings": null
+    },
+    "b9a0": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "JST Error Message",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.efb4.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.39068994181213634,
+      "y": 0.7186009538950715,
+      "scheduled": false
+    },
+    "fd0d": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": -0.38985868661679135,
+      "y": 0.9054054054054054,
+      "scheduled": false
+    },
+    "fa6e": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6666666666666666,
+      "y": 0.908315565031983,
+      "scheduled": false
+    },
+    "987f": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.9733333333333334,
+      "y": 0.908315565031983,
+      "scheduled": false
+    },
+    "37de": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "regionalHubDataArray",
+      "description": "regionalHubDataArray",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "regionalHubDataArray",
+          "obj": "$var.5d9d.job_details"
+        },
+        "outgoing": {
+          "return_data": "$var.job.regionalHubDataArray"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.44045206898957306,
+      "y": 0.5671641791044776,
+      "scheduled": false
+    },
+    "d731": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Github File error",
+      "description": "Github File error",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "errorMessage",
+          "obj": "$var.2108.return_value"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.3835294117647059,
+      "y": 0.7217484008528785,
+      "scheduled": false
+    },
+    "3e6f": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.3835294117647059,
+      "y": 0.908315565031983,
+      "scheduled": false
+    },
+    "272e": {
+      "name": "updateJobDescription",
+      "canvasName": "updateJobDescription",
+      "summary": "Update Job Description",
+      "description": "Overwrite the job description with a new one",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "description": "$var.2337.jobDescription"
+        },
+        "outgoing": {
+          "description": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.04239401496259352,
+      "y": 0.5643879173290938,
+      "scheduled": false
+    },
+    "b847": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "JST Error Message",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.2337.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.20615128844555278,
+      "y": 0.7186009538950715,
+      "scheduled": false
+    },
+    "5d9d": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Get Region Files(s) from GitHub",
+      "description": "Get Region Files(s) from GitHub",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Get Region File(s) from GitHub",
+          "variables": {
+            "repoOwner": {
+              "editable": true,
+              "task": "static",
+              "value": "NickAOrg"
+            },
+            "repoName": {
+              "editable": true,
+              "task": "static",
+              "value": "regions"
+            },
+            "runFile": {
+              "editable": true,
+              "task": "efb4",
+              "value": "runFile"
+            },
+            "branchName": {
+              "editable": true,
+              "task": "static",
+              "value": "main"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.2528681889078976,
+      "y": 0.5671641791044776
+    },
+    "e1f3": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Run Regional Hub File",
+      "description": "Run Regional Hub File",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Run Regional Hub File",
+          "variables": {
+            "tags": {
+              "task": "efb4",
+              "value": "filePath"
+            }
+          },
+          "data_array": "$var.job.ParallelRegionalHubDataArray",
+          "transformation": "63f3cc3a59b8702a8c6b78cd",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.5403877981347976,
+      "y": 0.5671641791044776
+    },
+    "8e6": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "childJobLoopCheck",
+      "description": "childJobLoopCheck",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dadc5099d6ef6162a28b50",
+          "variableMap": {
+            "childJobLoopDetails": "$var.e1f3.job_details"
+          },
+          "options": {
+            "extractOutput": false,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "AllChildJobsRanSuccessfully": null,
+          "erroredMessages": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.6732647022546508,
+      "y": 0.5671641791044776,
+      "task_name": "childJobLoopCheck",
+      "retrySettings": null
+    },
+    "68c7": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "JST Error Message",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.8e6.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.6705882352941176,
+      "y": 0.7217484008528785,
+      "scheduled": false
+    },
+    "17c9": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "errorMessage",
+      "description": "errorMessage",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.f7fc.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.8250980392156863,
+      "y": 0.7217484008528785,
+      "scheduled": false
+    },
+    "e759": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.8258823529411765,
+      "y": 0.908315565031983,
+      "scheduled": false
+    },
+    "f7fc": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "GetChildJobLoopReports",
+      "description": "GetChildJobLoopReports",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63f3d4f859b8702a8c6b78ce",
+          "variableMap": {
+            "childJobDetails": "$var.e1f3.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "report": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.8116318054448547,
+      "y": 0.5671641791044776,
+      "task_name": "GetChildJobLoopReports",
+      "retrySettings": null
+    },
+    "b828": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Report",
+      "description": "Report",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.f7fc.report"
+        },
+        "outgoing": {
+          "return_data": "$var.job.report"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.9170577336604302,
+      "y": 0.5671641791044776,
+      "scheduled": false
+    },
+    "76bb": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Get File(s) from GitHub?",
+      "description": "Get File(s) from GitHub? TO BE DELETED after region files are retrievable from Github.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "",
+                  "operand_1": {
+                    "variable": false,
+                    "task": "static"
+                  },
+                  "operator": "contains",
+                  "operand_2": {
+                    "variable": true,
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.09476309226932668,
+      "y": 0.5620031796502385
+    },
+    "db2e": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "ParallelRegionalHubDataArray",
+          "value": "[[{\"leaf\":{\"commonDevicesCommandSets\":[{\"devices\":[\"172.20.103.138\",\"172.20.103.137\"],\"deviceType\":\"cisco_nxos\",\"username\":\"admin\",\"port\":22,\"commands\":[[\"show interfaces\",\"show version\"],[\"show location\"]]}],\"uniqueDevicesCommands\":[{\"device\":\"172.20.103.121\",\"deviceType\":\"cisco_xr\",\"username\":\"admin\",\"port\":22,\"commands\":[[\"show interfaces\",\"show version\"],[\"show location\"]]}]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}},{\"leaf\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"spine\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"dci\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"internet\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"mpls\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]},\"apic\":{\"commonDevicesCommandSets\":[],\"uniqueDevicesCommands\":[]}}]"
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.08862745098039215,
+      "y": 0.27398720682302774
+    },
+    "f9e6": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "SequentialRegionalHubDataArray",
+          "value": []
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.08078431372549019,
+      "y": 0.11194029850746269
+    },
+    "34df": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Run Regional Hub File",
+      "description": "Run Regional Hub File",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Run Regional Hub File",
+          "variables": {
+            "tags": {
+              "task": "efb4",
+              "value": "filePath"
+            }
+          },
+          "data_array": "$var.job.SequentialRegionalHubDataArray",
+          "transformation": "63f3cc3a59b8702a8c6b78cd",
+          "loopType": "sequential"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.5317647058823529,
+      "y": 0.13326226012793177
+    },
+    "e9bf": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "childJobLoopCheck",
+      "description": "childJobLoopCheck",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dadc5099d6ef6162a28b50",
+          "variableMap": {
+            "childJobLoopDetails": "$var.34df.job_details"
+          },
+          "options": {
+            "extractOutput": false,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "AllChildJobsRanSuccessfully": null,
+          "erroredMessages": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.672156862745098,
+      "y": 0.12366737739872068,
+      "task_name": "childJobLoopCheck",
+      "retrySettings": null
+    },
+    "8f05": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Report",
+      "description": "Report",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.5872.report"
+        },
+        "outgoing": {
+          "return_data": "$var.job.reportSequential"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.923921568627451,
+      "y": 0.12686567164179105,
+      "scheduled": false
+    },
+    "bd8": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "JST Error Message",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.e9bf.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.6768627450980392,
+      "y": 0.23880597014925373,
+      "scheduled": false
+    },
+    "d329": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6823529411764706,
+      "y": 0.3272921108742004,
+      "scheduled": false
+    },
+    "9b": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "errorMessage",
+      "description": "errorMessage",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.5872.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.8133333333333334,
+      "y": 0.2281449893390192,
+      "scheduled": false
+    },
+    "1c50": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "To be deleted after files are in GitHub",
+      "description": "To be deleted after files are in GitHub",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.0773067331670823,
+      "y": 0.4189189189189189,
+      "scheduled": false
+    },
+    "950c": {
+      "name": "validateJsonSchema",
+      "canvasName": "validateJsonSchema",
+      "summary": "Validate JSON data with schema.",
+      "description": "Perform a JSON Schema validation.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "jsonData": "$var.job.ParallelRegionalHubDataArray",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "leaf": {
+                  "type": "object",
+                  "properties": {
+                    "commonDevicesCommandSets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "devices": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "examples": [
+                                "sealeaf101"
+                              ]
+                            }
+                          },
+                          "deviceType": {
+                            "type": "string",
+                            "examples": [
+                              "cisco_nxos"
+                            ]
+                          },
+                          "username": {
+                            "type": "string",
+                            "examples": [
+                              "admin"
+                            ]
+                          },
+                          "port": {
+                            "type": "integer",
+                            "examples": [
+                              22
+                            ]
+                          },
+                          "commands": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "examples": [
+                                  "acidiag fnvread",
+                                  "show interface",
+                                  "show interface description",
+                                  "show cdp neighbors",
+                                  "show diagnostic result module all",
+                                  "show endpoint vrf all detail",
+                                  "show environment",
+                                  "show interface status",
+                                  "show port-channel summary",
+                                  "show tunnel internal database reachability",
+                                  "show tunnel internal database reachability | wc -l",
+                                  "show version",
+                                  "show vlan extended",
+                                  "show vpc brief",
+                                  "show vrf",
+                                  "show interface status up",
+                                  "show interface trunk",
+                                  "show isis adjacency detail vrf overlay-1",
+                                  "show isis dteps vrf all | sort",
+                                  "show lldp neighbors",
+                                  "show mac address-table | grep -v tunnel | sort",
+                                  "show module"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "required": []
+                      }
+                    },
+                    "uniqueDevicesCommands": {
+                      "type": "array"
+                    }
+                  },
+                  "required": []
+                },
+                "spine": {
+                  "type": "object",
+                  "properties": {
+                    "commonDevicesCommandSets": {
+                      "type": "array"
+                    },
+                    "uniqueDevicesCommands": {
+                      "type": "array"
+                    }
+                  },
+                  "required": []
+                },
+                "dci": {
+                  "type": "object",
+                  "properties": {
+                    "commonDevicesCommandSets": {
+                      "type": "array"
+                    },
+                    "uniqueDevicesCommands": {
+                      "type": "array"
+                    }
+                  },
+                  "required": []
+                },
+                "internet": {
+                  "type": "object",
+                  "properties": {
+                    "commonDevicesCommandSets": {
+                      "type": "array"
+                    },
+                    "uniqueDevicesCommands": {
+                      "type": "array"
+                    }
+                  },
+                  "required": []
+                },
+                "mpls": {
+                  "type": "object",
+                  "properties": {
+                    "commonDevicesCommandSets": {
+                      "type": "array"
+                    },
+                    "uniqueDevicesCommands": {
+                      "type": "array"
+                    }
+                  },
+                  "required": []
+                },
+                "apic": {
+                  "type": "object",
+                  "properties": {
+                    "commonDevicesCommandSets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "devices": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "examples": [
+                                "seaapic001"
+                              ]
+                            }
+                          },
+                          "deviceType": {
+                            "type": "string",
+                            "examples": [
+                              "cisco_nxos"
+                            ]
+                          },
+                          "username": {
+                            "type": "string",
+                            "examples": [
+                              "admin"
+                            ]
+                          },
+                          "port": {
+                            "type": "integer",
+                            "examples": [
+                              22
+                            ]
+                          },
+                          "commands": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "examples": [
+                                  "acidiag avread",
+                                  "cat /proc/net/bonding/bond0",
+                                  "show controller",
+                                  "show endpoints | grep -v tunnel",
+                                  "show faults tenant common | grep -P '.*'",
+                                  "show health tenant common",
+                                  "show switch",
+                                  "show tenant",
+                                  "show version"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "required": []
+                      }
+                    },
+                    "uniqueDevicesCommands": {
+                      "type": "array"
+                    }
+                  },
+                  "required": []
+                }
+              },
+              "required": []
+            }
+          }
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.40784313725490196,
+      "y": 0.3272921108742004,
+      "scheduled": false
+    }
+  },
+  "transitions": {
+    "2108": {
+      "37de": {
+        "type": "standard",
+        "state": "success"
+      },
+      "d731": {
+        "type": "standard",
+        "state": "failure"
+      }
+    },
+    "2337": {
+      "272e": {
+        "type": "standard",
+        "state": "success"
+      },
+      "b847": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "4676": {
+      "3e6f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5872": {
+      "8f05": {
+        "type": "standard",
+        "state": "success"
+      },
+      "9b": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "6055": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6224": {},
+    "workflow_start": {
+      "73fe": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "73fe": {
+      "efb4": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "efb4": {
+      "2337": {
+        "type": "standard",
+        "state": "success"
+      },
+      "b9a0": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "9b0a": {},
+    "b9a0": {
+      "fd0d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "fd0d": {
+      "4676": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "fa6e": {
+      "e759": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "987f": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8a83": {},
+    "37de": {
+      "950c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d731": {
+      "3e6f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "3e6f": {
+      "fa6e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "37da": {},
+    "272e": {
+      "76bb": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b847": {
+      "4676": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5d9d": {
+      "2108": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e1f3": {
+      "8e6": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8e6": {
+      "68c7": {
+        "type": "standard",
+        "state": "error"
+      },
+      "f7fc": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "68c7": {
+      "fa6e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "17c9": {
+      "e759": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e759": {
+      "987f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "f7fc": {
+      "17c9": {
+        "type": "standard",
+        "state": "error"
+      },
+      "b828": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b828": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "76bb": {
+      "5d9d": {
+        "type": "standard",
+        "state": "success"
+      },
+      "1c50": {
+        "type": "standard",
+        "state": "failure"
+      }
+    },
+    "db2e": {
+      "f9e6": {
+        "type": "standard",
+        "state": "success"
+      },
+      "950c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "f9e6": {
+      "34df": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "34df": {
+      "e9bf": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e9bf": {
+      "5872": {
+        "type": "standard",
+        "state": "success"
+      },
+      "bd8": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "8f05": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "bd8": {
+      "d329": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d329": {
+      "6055": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "9b": {
+      "6055": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "1c50": {
+      "db2e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "950c": {
+      "e1f3": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "font_size": 12,
+  "last_updated": "2023-03-01T20:59:13.330Z",
+  "last_updated_by": {
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com",
+    "firstname": "Nick",
+    "inactive": false,
+    "email": ""
+  },
+  "lastUpdatedVersion": "5.40.5-2021.1.123.0",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "formData": {
+        "$id": "formData",
+        "type": "object",
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "designation": {
+                  "type": "string",
+                  "examples": [
+                    "Night 1"
+                  ]
+                }
+              },
+              "required": []
+            },
+            "$id": "tags"
+          },
+          "region": {
+            "type": "string",
+            "examples": [
+              "San Jose"
+            ]
+          }
+        },
+        "required": []
+      }
+    },
+    "required": [
+      "formData"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "formData": {
+        "$id": "formData",
+        "type": "object",
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "designation": {
+                  "type": "string",
+                  "examples": [
+                    "Night 1"
+                  ]
+                }
+              },
+              "required": []
+            },
+            "$id": "tags"
+          },
+          "region": {
+            "type": "string",
+            "examples": [
+              "San Jose"
+            ]
+          }
+        },
+        "required": []
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "error": {
+        "type": "boolean"
+      },
+      "errorMessage": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "regionalHubDataArray": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "ParallelRegionalHubDataArray": {
+        "type": "string"
+      },
+      "report": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "SequentialRegionalHubDataArray": {
+        "type": "array"
+      },
+      "reportSequential": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      }
+    }
+  },
+  "created": "2023-02-06T00:51:04.830Z",
+  "created_by": {
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com",
+    "firstname": "Nick",
+    "inactive": false,
+    "email": ""
+  },
+  "createdVersion": "5.40.5-2021.1.123.0",
+  "tags": [],
+  "groups": []
+}
