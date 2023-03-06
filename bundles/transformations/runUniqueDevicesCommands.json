@@ -1,0 +1,86 @@
+{
+  "_id": "63db221a99d6ef6162a28b57",
+  "name": "runUniqueDevicesCommands",
+  "description": "Creates input array for runUniqueDevicesCommands child job loop.",
+  "incoming": [
+    {
+      "$id": "currentValue",
+      "type": [
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string"
+      ],
+      "$immutable": true
+    },
+    {
+      "$id": "filePath",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "uniqueDevicesCommands",
+      "type": "object",
+      "$immutable": true
+    },
+    {
+      "$id": "filePath",
+      "type": "string",
+      "$immutable": true
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "filePath",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "filePath",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "currentValue",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "uniqueDevicesCommands",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [],
+  "comments": [],
+  "view": {
+    "col": 1,
+    "row": 5
+  },
+  "created": "2023-02-02T21:16:19.504Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-27T20:04:27.163Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
