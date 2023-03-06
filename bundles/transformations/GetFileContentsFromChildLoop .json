@@ -1,0 +1,1185 @@
+{
+  "_id": "63f3c1df59b8702a8c6b78cb",
+  "name": "GetFileContentsFromChildLoop ",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "childJobDetails",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "examples": [
+            "complete"
+          ]
+        },
+        "loop": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "examples": [
+                  "complete"
+                ]
+              },
+              "filePath": {
+                "type": "string",
+                "examples": [
+                  "San Jose/san_jose_apics%2Ejson"
+                ]
+              },
+              "branchName": {
+                "type": "string",
+                "examples": [
+                  "main"
+                ]
+              },
+              "repoOwner": {
+                "type": "string",
+                "examples": [
+                  "NickAOrg"
+                ]
+              },
+              "repoName": {
+                "type": "string",
+                "examples": [
+                  "regions"
+                ]
+              },
+              "childJobLoopIndex": {
+                "type": [
+                  "integer",
+                  "number"
+                ],
+                "examples": [
+                  0
+                ]
+              },
+              "_id": {
+                "type": "string",
+                "examples": [
+                  "4265054058694bed816650ba"
+                ]
+              },
+              "initiator": {
+                "type": "string",
+                "examples": [
+                  "nick%2Eandreano@itential%2Ecom"
+                ],
+                "format": "email"
+              },
+              "error": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "fileResponse": {
+                "type": "object",
+                "properties": {
+                  "icode": {
+                    "type": "string",
+                    "examples": [
+                      "AD%2E200"
+                    ]
+                  },
+                  "response": {
+                    "type": "object",
+                    "properties": {
+                      "pathParam": {
+                        "type": "string",
+                        "examples": [
+                          "San Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "pathParamQuery": {
+                        "type": "string",
+                        "examples": [
+                          "San Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "content": {
+                        "type": "string",
+                        "examples": [
+                          "{\n    \"leaf\":\n    {\n        \"commonDevicesCommandSets\":\n        [\n            {\n                \"devices\":\n                [\n                    \"172.20.103.138\",\n                    \"172.20.103.137\"\n                ],\n                \"deviceType\": \"cisco_ios\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\",\n                        \"show version\"\n                    ],\n                    [\n                        \"show location\"\n                    ]\n                ]\n            }\n        ],\n        \"uniqueDevicesCommands\":\n        [\n            {\n                \"device\": \"172.20.103.121\",\n                \"deviceType\": \"cisco_xr\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\"\n                    ],\n                    [\n                        \"show version\"\n                    ]\n                ]\n            }\n        ]\n    },\n    \"spine\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"dci\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"internet\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"mpls\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"apic\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    }\n}"
+                        ]
+                      },
+                      "name": {
+                        "type": "string",
+                        "examples": [
+                          "san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "sha": {
+                        "type": "string",
+                        "examples": [
+                          "3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                        ]
+                      },
+                      "size": {
+                        "type": "integer",
+                        "examples": [
+                          1689
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                        ]
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "git_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                        ]
+                      },
+                      "download_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://raw%2Egithubusercontent%2Ecom/NickAOrg/regions/main/San%20Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "examples": [
+                          "file"
+                        ]
+                      },
+                      "encoding": {
+                        "type": "string",
+                        "examples": [
+                          "base64"
+                        ]
+                      },
+                      "_links": {
+                        "type": "object",
+                        "properties": {
+                          "self": {
+                            "type": "string",
+                            "examples": [
+                              "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                            ]
+                          },
+                          "git": {
+                            "type": "string",
+                            "examples": [
+                              "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                            ]
+                          },
+                          "html": {
+                            "type": "string",
+                            "examples": [
+                              "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                            ]
+                          }
+                        },
+                        "required": []
+                      }
+                    },
+                    "required": []
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          },
+          "$id": "loop"
+        }
+      },
+      "required": []
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "regionalHubDataArray",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "method",
+      "library": "Array",
+      "method": "reduce",
+      "args": [
+        null,
+        "ƒ_reduce_1",
+        []
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "childJobDetails",
+        "ptr": "/loop"
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "regionalHubDataArray",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "examples": [
+                "complete"
+              ]
+            },
+            "filePath": {
+              "type": "string",
+              "examples": [
+                "San Jose/san_jose_apics%2Ejson"
+              ]
+            },
+            "branchName": {
+              "type": "string",
+              "examples": [
+                "main"
+              ]
+            },
+            "repoOwner": {
+              "type": "string",
+              "examples": [
+                "NickAOrg"
+              ]
+            },
+            "repoName": {
+              "type": "string",
+              "examples": [
+                "regions"
+              ]
+            },
+            "childJobLoopIndex": {
+              "type": [
+                "integer",
+                "number"
+              ],
+              "examples": [
+                0
+              ]
+            },
+            "_id": {
+              "type": "string",
+              "examples": [
+                "4265054058694bed816650ba"
+              ]
+            },
+            "initiator": {
+              "type": "string",
+              "examples": [
+                "nick%2Eandreano@itential%2Ecom"
+              ],
+              "format": "email"
+            },
+            "error": {
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "fileResponse": {
+              "type": "object",
+              "properties": {
+                "icode": {
+                  "type": "string",
+                  "examples": [
+                    "AD%2E200"
+                  ]
+                },
+                "response": {
+                  "type": "object",
+                  "properties": {
+                    "pathParam": {
+                      "type": "string",
+                      "examples": [
+                        "San Jose/san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "pathParamQuery": {
+                      "type": "string",
+                      "examples": [
+                        "San Jose/san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "content": {
+                      "type": "string",
+                      "examples": [
+                        "{\n    \"leaf\":\n    {\n        \"commonDevicesCommandSets\":\n        [\n            {\n                \"devices\":\n                [\n                    \"172.20.103.138\",\n                    \"172.20.103.137\"\n                ],\n                \"deviceType\": \"cisco_ios\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\",\n                        \"show version\"\n                    ],\n                    [\n                        \"show location\"\n                    ]\n                ]\n            }\n        ],\n        \"uniqueDevicesCommands\":\n        [\n            {\n                \"device\": \"172.20.103.121\",\n                \"deviceType\": \"cisco_xr\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\"\n                    ],\n                    [\n                        \"show version\"\n                    ]\n                ]\n            }\n        ]\n    },\n    \"spine\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"dci\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"internet\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"mpls\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"apic\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    }\n}"
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "examples": [
+                        "san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "sha": {
+                      "type": "string",
+                      "examples": [
+                        "3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                      ]
+                    },
+                    "size": {
+                      "type": "integer",
+                      "examples": [
+                        1689
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "examples": [
+                        "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                      ]
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "examples": [
+                        "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "git_url": {
+                      "type": "string",
+                      "examples": [
+                        "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                      ]
+                    },
+                    "download_url": {
+                      "type": "string",
+                      "examples": [
+                        "https://raw%2Egithubusercontent%2Ecom/NickAOrg/regions/main/San%20Jose/san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "type": {
+                      "type": "string",
+                      "examples": [
+                        "file"
+                      ]
+                    },
+                    "encoding": {
+                      "type": "string",
+                      "examples": [
+                        "base64"
+                      ]
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "examples": [
+                            "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                          ]
+                        },
+                        "git": {
+                          "type": "string",
+                          "examples": [
+                            "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                          ]
+                        },
+                        "html": {
+                          "type": "string",
+                          "examples": [
+                            "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                          ]
+                        }
+                      },
+                      "required": []
+                    }
+                  },
+                  "required": []
+                }
+              },
+              "required": []
+            }
+          },
+          "required": [],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "examples": [
+                  "complete"
+                ]
+              },
+              "filePath": {
+                "type": "string",
+                "examples": [
+                  "San Jose/san_jose_apics%2Ejson"
+                ]
+              },
+              "branchName": {
+                "type": "string",
+                "examples": [
+                  "main"
+                ]
+              },
+              "repoOwner": {
+                "type": "string",
+                "examples": [
+                  "NickAOrg"
+                ]
+              },
+              "repoName": {
+                "type": "string",
+                "examples": [
+                  "regions"
+                ]
+              },
+              "childJobLoopIndex": {
+                "type": [
+                  "integer",
+                  "number"
+                ],
+                "examples": [
+                  0
+                ]
+              },
+              "_id": {
+                "type": "string",
+                "examples": [
+                  "4265054058694bed816650ba"
+                ]
+              },
+              "initiator": {
+                "type": "string",
+                "examples": [
+                  "nick%2Eandreano@itential%2Ecom"
+                ],
+                "format": "email"
+              },
+              "error": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "fileResponse": {
+                "type": "object",
+                "properties": {
+                  "icode": {
+                    "type": "string",
+                    "examples": [
+                      "AD%2E200"
+                    ]
+                  },
+                  "response": {
+                    "type": "object",
+                    "properties": {
+                      "pathParam": {
+                        "type": "string",
+                        "examples": [
+                          "San Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "pathParamQuery": {
+                        "type": "string",
+                        "examples": [
+                          "San Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "content": {
+                        "type": "string",
+                        "examples": [
+                          "{\n    \"leaf\":\n    {\n        \"commonDevicesCommandSets\":\n        [\n            {\n                \"devices\":\n                [\n                    \"172.20.103.138\",\n                    \"172.20.103.137\"\n                ],\n                \"deviceType\": \"cisco_ios\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\",\n                        \"show version\"\n                    ],\n                    [\n                        \"show location\"\n                    ]\n                ]\n            }\n        ],\n        \"uniqueDevicesCommands\":\n        [\n            {\n                \"device\": \"172.20.103.121\",\n                \"deviceType\": \"cisco_xr\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\"\n                    ],\n                    [\n                        \"show version\"\n                    ]\n                ]\n            }\n        ]\n    },\n    \"spine\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"dci\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"internet\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"mpls\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"apic\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    }\n}"
+                        ]
+                      },
+                      "name": {
+                        "type": "string",
+                        "examples": [
+                          "san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "sha": {
+                        "type": "string",
+                        "examples": [
+                          "3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                        ]
+                      },
+                      "size": {
+                        "type": "integer",
+                        "examples": [
+                          1689
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                        ]
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "git_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                        ]
+                      },
+                      "download_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://raw%2Egithubusercontent%2Ecom/NickAOrg/regions/main/San%20Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "examples": [
+                          "file"
+                        ]
+                      },
+                      "encoding": {
+                        "type": "string",
+                        "examples": [
+                          "base64"
+                        ]
+                      },
+                      "_links": {
+                        "type": "object",
+                        "properties": {
+                          "self": {
+                            "type": "string",
+                            "examples": [
+                              "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                            ]
+                          },
+                          "git": {
+                            "type": "string",
+                            "examples": [
+                              "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                            ]
+                          },
+                          "html": {
+                            "type": "string",
+                            "examples": [
+                              "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                            ]
+                          }
+                        },
+                        "required": []
+                      }
+                    },
+                    "required": []
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true,
+          "isThis": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "newValue",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "editable": true,
+          "$id": "newValue"
+        }
+      ],
+      "functions": [],
+      "name": "ƒ_map_1",
+      "steps": [],
+      "view": {
+        "col": 2,
+        "row": 4
+      },
+      "id": "ƒ_map_1",
+      "comments": []
+    },
+    {
+      "incoming": [
+        {
+          "$id": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "examples": [
+                "complete"
+              ]
+            },
+            "filePath": {
+              "type": "string",
+              "examples": [
+                "San Jose/san_jose_apics%2Ejson"
+              ]
+            },
+            "branchName": {
+              "type": "string",
+              "examples": [
+                "main"
+              ]
+            },
+            "repoOwner": {
+              "type": "string",
+              "examples": [
+                "NickAOrg"
+              ]
+            },
+            "repoName": {
+              "type": "string",
+              "examples": [
+                "regions"
+              ]
+            },
+            "childJobLoopIndex": {
+              "type": [
+                "integer",
+                "number"
+              ],
+              "examples": [
+                0
+              ]
+            },
+            "_id": {
+              "type": "string",
+              "examples": [
+                "4265054058694bed816650ba"
+              ]
+            },
+            "initiator": {
+              "type": "string",
+              "examples": [
+                "nick%2Eandreano@itential%2Ecom"
+              ],
+              "format": "email"
+            },
+            "error": {
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "fileResponse": {
+              "type": "object",
+              "properties": {
+                "icode": {
+                  "type": "string",
+                  "examples": [
+                    "AD%2E200"
+                  ]
+                },
+                "response": {
+                  "type": "object",
+                  "properties": {
+                    "pathParam": {
+                      "type": "string",
+                      "examples": [
+                        "San Jose/san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "pathParamQuery": {
+                      "type": "string",
+                      "examples": [
+                        "San Jose/san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "content": {
+                      "type": "string",
+                      "examples": [
+                        "{\n    \"leaf\":\n    {\n        \"commonDevicesCommandSets\":\n        [\n            {\n                \"devices\":\n                [\n                    \"172.20.103.138\",\n                    \"172.20.103.137\"\n                ],\n                \"deviceType\": \"cisco_ios\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\",\n                        \"show version\"\n                    ],\n                    [\n                        \"show location\"\n                    ]\n                ]\n            }\n        ],\n        \"uniqueDevicesCommands\":\n        [\n            {\n                \"device\": \"172.20.103.121\",\n                \"deviceType\": \"cisco_xr\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\"\n                    ],\n                    [\n                        \"show version\"\n                    ]\n                ]\n            }\n        ]\n    },\n    \"spine\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"dci\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"internet\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"mpls\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"apic\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    }\n}"
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "examples": [
+                        "san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "sha": {
+                      "type": "string",
+                      "examples": [
+                        "3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                      ]
+                    },
+                    "size": {
+                      "type": "integer",
+                      "examples": [
+                        1689
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "examples": [
+                        "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                      ]
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "examples": [
+                        "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "git_url": {
+                      "type": "string",
+                      "examples": [
+                        "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                      ]
+                    },
+                    "download_url": {
+                      "type": "string",
+                      "examples": [
+                        "https://raw%2Egithubusercontent%2Ecom/NickAOrg/regions/main/San%20Jose/san_jose_apics%2Ejson"
+                      ]
+                    },
+                    "type": {
+                      "type": "string",
+                      "examples": [
+                        "file"
+                      ]
+                    },
+                    "encoding": {
+                      "type": "string",
+                      "examples": [
+                        "base64"
+                      ]
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "examples": [
+                            "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                          ]
+                        },
+                        "git": {
+                          "type": "string",
+                          "examples": [
+                            "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                          ]
+                        },
+                        "html": {
+                          "type": "string",
+                          "examples": [
+                            "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                          ]
+                        }
+                      },
+                      "required": []
+                    }
+                  },
+                  "required": []
+                }
+              },
+              "required": []
+            }
+          },
+          "required": [],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "examples": [
+                  "complete"
+                ]
+              },
+              "filePath": {
+                "type": "string",
+                "examples": [
+                  "San Jose/san_jose_apics%2Ejson"
+                ]
+              },
+              "branchName": {
+                "type": "string",
+                "examples": [
+                  "main"
+                ]
+              },
+              "repoOwner": {
+                "type": "string",
+                "examples": [
+                  "NickAOrg"
+                ]
+              },
+              "repoName": {
+                "type": "string",
+                "examples": [
+                  "regions"
+                ]
+              },
+              "childJobLoopIndex": {
+                "type": [
+                  "integer",
+                  "number"
+                ],
+                "examples": [
+                  0
+                ]
+              },
+              "_id": {
+                "type": "string",
+                "examples": [
+                  "4265054058694bed816650ba"
+                ]
+              },
+              "initiator": {
+                "type": "string",
+                "examples": [
+                  "nick%2Eandreano@itential%2Ecom"
+                ],
+                "format": "email"
+              },
+              "error": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "fileResponse": {
+                "type": "object",
+                "properties": {
+                  "icode": {
+                    "type": "string",
+                    "examples": [
+                      "AD%2E200"
+                    ]
+                  },
+                  "response": {
+                    "type": "object",
+                    "properties": {
+                      "pathParam": {
+                        "type": "string",
+                        "examples": [
+                          "San Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "pathParamQuery": {
+                        "type": "string",
+                        "examples": [
+                          "San Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "content": {
+                        "type": "string",
+                        "examples": [
+                          "{\n    \"leaf\":\n    {\n        \"commonDevicesCommandSets\":\n        [\n            {\n                \"devices\":\n                [\n                    \"172.20.103.138\",\n                    \"172.20.103.137\"\n                ],\n                \"deviceType\": \"cisco_ios\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\",\n                        \"show version\"\n                    ],\n                    [\n                        \"show location\"\n                    ]\n                ]\n            }\n        ],\n        \"uniqueDevicesCommands\":\n        [\n            {\n                \"device\": \"172.20.103.121\",\n                \"deviceType\": \"cisco_xr\",\n                \"username\": \"admin\",\n                \"port\": 22,\n                \"commands\":\n                [\n                    [\n                        \"show interfaces\"\n                    ],\n                    [\n                        \"show version\"\n                    ]\n                ]\n            }\n        ]\n    },\n    \"spine\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"dci\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"internet\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"mpls\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    },\n    \"apic\":\n    {\n        \"commonDevicesCommandSets\":\n        [],\n        \"uniqueDevicesCommands\":\n        []\n    }\n}"
+                        ]
+                      },
+                      "name": {
+                        "type": "string",
+                        "examples": [
+                          "san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "sha": {
+                        "type": "string",
+                        "examples": [
+                          "3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                        ]
+                      },
+                      "size": {
+                        "type": "integer",
+                        "examples": [
+                          1689
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                        ]
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "git_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                        ]
+                      },
+                      "download_url": {
+                        "type": "string",
+                        "examples": [
+                          "https://raw%2Egithubusercontent%2Ecom/NickAOrg/regions/main/San%20Jose/san_jose_apics%2Ejson"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "examples": [
+                          "file"
+                        ]
+                      },
+                      "encoding": {
+                        "type": "string",
+                        "examples": [
+                          "base64"
+                        ]
+                      },
+                      "_links": {
+                        "type": "object",
+                        "properties": {
+                          "self": {
+                            "type": "string",
+                            "examples": [
+                              "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/san_jose_apics%2Ejson?ref=main"
+                            ]
+                          },
+                          "git": {
+                            "type": "string",
+                            "examples": [
+                              "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/3b9151d6767dd9d739660f8381216e4d6c2aa7f6"
+                            ]
+                          },
+                          "html": {
+                            "type": "string",
+                            "examples": [
+                              "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/san_jose_apics%2Ejson"
+                            ]
+                          }
+                        },
+                        "required": []
+                      }
+                    },
+                    "required": []
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true,
+          "isThis": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "$id": "accumulator"
+        }
+      ],
+      "functions": [],
+      "name": "ƒ_reduce_1",
+      "steps": [
+        {
+          "id": 1,
+          "type": "method",
+          "library": "JSON",
+          "method": "parse",
+          "args": [
+            null,
+            null
+          ],
+          "view": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/fileResponse/response/content"
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/0/value"
+          }
+        },
+        {
+          "id": 3,
+          "type": "method",
+          "library": "Array",
+          "method": "push",
+          "args": [
+            null,
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "accumulator",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/args/0/value"
+          }
+        },
+        {
+          "id": 5,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "accumulator",
+            "ptr": ""
+          }
+        },
+        {
+          "id": 6,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/args/1/value"
+          }
+        }
+      ],
+      "view": {
+        "col": 1,
+        "row": 4
+      },
+      "id": "ƒ_reduce_1",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-02-20T18:54:23.219Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-20T18:58:21.066Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
