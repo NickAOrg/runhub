@@ -1,0 +1,281 @@
+{
+  "canvasVersion": 1,
+  "created": "2022-03-10T14:24:09.562Z",
+  "createdVersion": "5.40.5-2021.1.52.0",
+  "created_by": {
+    "provenance": "CloudAAA",
+    "username": "jerry.dollens@itential.com",
+    "firstname": "Jerry",
+    "inactive": true
+  },
+  "description": null,
+  "font_size": 12,
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "repoOwner": {
+        "title": "owner",
+        "type": "string"
+      },
+      "repoName": {
+        "title": "repo",
+        "type": "string"
+      },
+      "filePath": {
+        "title": "pathParam",
+        "type": "string"
+      },
+      "branchName": {
+        "title": "ref",
+        "type": "string"
+      }
+    },
+    "required": [
+      "repoOwner",
+      "repoName",
+      "filePath",
+      "branchName"
+    ]
+  },
+  "lastUpdatedVersion": "5.40.5-2021.1.123.0",
+  "last_updated": "2023-02-06T02:13:39.712Z",
+  "last_updated_by": {
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com",
+    "firstname": "Nick",
+    "inactive": false,
+    "email": ""
+  },
+  "name": "Get File - GitHub",
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "repoOwner": {
+        "title": "owner",
+        "type": "string"
+      },
+      "repoName": {
+        "title": "repo",
+        "type": "string"
+      },
+      "filePath": {
+        "title": "pathParam",
+        "type": "string"
+      },
+      "branchName": {
+        "title": "ref",
+        "type": "string"
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "error": {
+        "type": "boolean"
+      },
+      "fileResponse": {
+        "title": "result",
+        "type": "object"
+      },
+      "githubError": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "errorMessage": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      }
+    }
+  },
+  "preAutomationTime": 0,
+  "sla": 0,
+  "tasks": {
+    "9720": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "error",
+          "value": false
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.8729411764705882,
+      "y": 0.3805970149253731
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": -0.9607843137254902,
+      "y": 0.3656716417910448
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": -0.5537254901960784,
+      "y": 0.3678038379530917
+    },
+    "915f": {
+      "name": "getReposOwnerRepoContentsPath",
+      "canvasName": "getReposOwnerRepoContentsPath",
+      "summary": "Get File",
+      "description": "Get File",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.repoOwner",
+          "repo": "$var.job.repoName",
+          "pathParam": "$var.job.filePath",
+          "pathParamQuery": "",
+          "ref": "$var.job.branchName",
+          "adapter_id": "GitHub"
+        },
+        "outgoing": {
+          "result": "$var.job.fileResponse"
+        },
+        "error": "$var.job.githubError",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": -0.7288712422007941,
+      "y": 0.3720728534258456,
+      "scheduled": false
+    },
+    "6a3a": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "error",
+          "value": true
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.5607843137254902,
+      "y": 0.48081023454157784
+    },
+    "7f7f": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "errorMessage",
+      "description": "errorMessage",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.915f.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.7341176470588235,
+      "y": 0.4914712153518124,
+      "scheduled": false
+    }
+  },
+  "transitions": {
+    "5464": {},
+    "9720": {
+      "915f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "9720": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "702a": {},
+    "f797": {},
+    "332f": {},
+    "a85b": {},
+    "915f": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      },
+      "7f7f": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "130d": {},
+    "3d37": {},
+    "6a3a": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "7f7f": {
+      "6a3a": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "type": "automation",
+  "tags": [],
+  "groups": []
+}
