@@ -1,0 +1,413 @@
+{
+  "_id": "63dab21199d6ef6162a28b4a",
+  "name": "ParseRegionalHubData",
+  "description": "Separates the regional hub object into common device command sets and unique devices commands for each device type.",
+  "incoming": [
+    {
+      "$id": "regionalHubData",
+      "type": "object",
+      "properties": {
+        "leaf": {
+          "type": "object",
+          "properties": {
+            "commonDevicesCommandSets": {
+              "type": "array"
+            },
+            "uniqueDevicesCommands": {
+              "type": "array"
+            }
+          },
+          "required": []
+        },
+        "spine": {
+          "type": "object",
+          "properties": {
+            "commonDevicesCommandSets": {
+              "type": "array"
+            },
+            "uniqueDevicesCommands": {
+              "type": "array"
+            }
+          },
+          "required": []
+        },
+        "dci": {
+          "type": "object",
+          "properties": {
+            "commonDevicesCommandSets": {
+              "type": "array"
+            },
+            "uniqueDevicesCommands": {
+              "type": "array"
+            }
+          },
+          "required": []
+        },
+        "internet": {
+          "type": "object",
+          "properties": {
+            "commonDevicesCommandSets": {
+              "type": "array"
+            },
+            "uniqueDevicesCommands": {
+              "type": "array"
+            }
+          },
+          "required": []
+        },
+        "mpls": {
+          "type": "object",
+          "properties": {
+            "commonDevicesCommandSets": {
+              "type": "array"
+            },
+            "uniqueDevicesCommands": {
+              "type": "array"
+            }
+          },
+          "required": []
+        },
+        "apic": {
+          "type": "object",
+          "properties": {
+            "commonDevicesCommandSets": {
+              "type": "array"
+            },
+            "uniqueDevicesCommands": {
+              "type": "array"
+            }
+          },
+          "required": []
+        }
+      },
+      "required": []
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "leafCommonDevicesCommandSets",
+      "type": "array"
+    },
+    {
+      "$id": "leafUniqueDevicesCommands",
+      "type": "array"
+    },
+    {
+      "$id": "spineCommonDevicesCommandSets",
+      "type": "array"
+    },
+    {
+      "$id": "spineUniqueDevicesCommands",
+      "type": "array"
+    },
+    {
+      "$id": "dciCommonDevicesCommandSets",
+      "type": "array"
+    },
+    {
+      "$id": "dciUniqueDevicesCommands",
+      "type": "array"
+    },
+    {
+      "$id": "internetCommonDevicesCommandSets",
+      "type": "array"
+    },
+    {
+      "$id": "internetUniqueDevicesCommands",
+      "type": "array"
+    },
+    {
+      "$id": "mplsCommonDevicesCommandSets",
+      "type": "array"
+    },
+    {
+      "$id": "mplsUniqueDevicesCommands",
+      "type": "array"
+    },
+    {
+      "$id": "apicCommonDevicesCommandSets",
+      "type": "array"
+    },
+    {
+      "$id": "apicUniqueDevicesCommands",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 5,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/dci/commonDevicesCommandSets"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "dciCommonDevicesCommandSets",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 6,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/dci/uniqueDevicesCommands"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "dciUniqueDevicesCommands",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 7,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/internet/commonDevicesCommandSets"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "internetCommonDevicesCommandSets",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 8,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/internet/uniqueDevicesCommands"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "internetUniqueDevicesCommands",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 9,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/mpls/commonDevicesCommandSets"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "mplsCommonDevicesCommandSets",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 10,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/mpls/uniqueDevicesCommands"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "mplsUniqueDevicesCommands",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 11,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/apic/commonDevicesCommandSets"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "apicCommonDevicesCommandSets",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 12,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/apic/uniqueDevicesCommands"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "apicUniqueDevicesCommands",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 13,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/spine/commonDevicesCommandSets"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "spineCommonDevicesCommandSets",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 14,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/spine/uniqueDevicesCommands"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "spineUniqueDevicesCommands",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 15,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/leaf/uniqueDevicesCommands"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "leafUniqueDevicesCommands",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 16,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "regionalHubData",
+        "ptr": "/leaf/commonDevicesCommandSets"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "leafCommonDevicesCommandSets",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "$id": "deviceTypeObject",
+          "type": "object",
+          "properties": {
+            "commonDevicesSets": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "examples": [
+                        "device_1"
+                      ]
+                    }
+                  },
+                  "commands": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "examples": [
+                          "cmd_1",
+                          "cmd_3"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "required": []
+              }
+            },
+            "uniqueDevices": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          },
+          "required": []
+        }
+      ],
+      "outgoing": [],
+      "functions": [],
+      "name": "extractCommonDeviceSetsAndUniqueDevices",
+      "steps": [
+        {
+          "id": 1,
+          "type": "method",
+          "library": "Array",
+          "method": "map",
+          "args": [
+            null,
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "deviceTypeObject",
+            "ptr": "/commonDevicesSets"
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/0/value"
+          }
+        }
+      ],
+      "view": {
+        "col": 2,
+        "row": 4
+      },
+      "id": "extractCommonDeviceSetsAndUniqueDevices",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 1,
+    "row": 5
+  },
+  "created": "2023-02-02T21:16:19.511Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-27T19:22:49.988Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
