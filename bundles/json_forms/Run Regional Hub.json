@@ -1,0 +1,325 @@
+{
+  "id": "63e14a5e63396d0afa0679b5",
+  "created": "2023-02-06T18:43:42.942Z",
+  "createdBy": "nick.andreano@itential.com",
+  "lastUpdated": "2023-03-01T19:44:06.226Z",
+  "lastUpdatedBy": "nick.andreano@itential.com",
+  "name": "Run Regional Hub",
+  "description": null,
+  "struct": {
+    "type": "object",
+    "description": "",
+    "items": [
+      {
+        "nodeId": "d4c9cec3-2820-4d7b-86ef-6a3da598cb23",
+        "type": "object",
+        "description": "",
+        "combinationType": "anyOf",
+        "items": [
+          {
+            "nodeId": "d3367493-4592-44eb-b45e-5603fb55d1c6",
+            "title": "Run Entire Region",
+            "type": "object",
+            "schemaOption": true,
+            "items": [
+              {
+                "nodeId": "2576051b-dfd6-493e-8795-1a90b27bb47e",
+                "type": "string",
+                "title": "Region",
+                "description": "",
+                "placeholder": "Select an item",
+                "required": true,
+                "enum": [
+                  {
+                    "id": "5fa4981a-a991-4e02-ae60-f090fbe89ef3",
+                    "label": "Ashburn",
+                    "value": "Ashburn"
+                  },
+                  {
+                    "id": "22844a09-dc5b-45ac-bf59-1374739d1dc0",
+                    "label": "San Jose",
+                    "value": "San Jose"
+                  },
+                  {
+                    "id": "fc5e5817-e021-4d7a-b894-c285c52ae0db",
+                    "label": "Seattle",
+                    "value": "Seattle"
+                  }
+                ],
+                "binding": false,
+                "rel": "collection",
+                "targetPointer": "/enum"
+              }
+            ]
+          },
+          {
+            "nodeId": "229cd03e-4fb5-489b-9f02-829e4f6f3bd2",
+            "title": "Run File",
+            "type": "object",
+            "schemaOption": true,
+            "items": [
+              {
+                "nodeId": "b037f5f5-f055-4793-9584-dbfb6f133424",
+                "type": "string",
+                "title": "Region",
+                "description": "",
+                "placeholder": "Select an item",
+                "required": true,
+                "enum": [
+                  {
+                    "id": "fe6a14c7-7570-4163-a35b-b2370d1bf2c0",
+                    "label": "Ashburn",
+                    "value": "Ashburn"
+                  },
+                  {
+                    "id": "44eec724-f05e-4ad4-8f81-10fffec31edc",
+                    "label": "San Jose",
+                    "value": "San Jose"
+                  },
+                  {
+                    "id": "cf3c0720-1400-4b19-8b69-95eb0b86b124",
+                    "label": "Seattle",
+                    "value": "Seattle"
+                  }
+                ],
+                "binding": false,
+                "rel": "collection",
+                "targetPointer": "/enum"
+              },
+              {
+                "nodeId": "ff5aad87-0398-4369-ad7e-4c8ffe8a42cf",
+                "type": "string",
+                "title": "File",
+                "description": "",
+                "placeholder": "Select an item",
+                "required": true,
+                "enum": [
+                  {
+                    "id": "26feac2e-f5f6-44f8-8df1-db2452a102f1",
+                    "label": "san_jose_apics",
+                    "value": "san_jose_apics"
+                  },
+                  {
+                    "id": "531dcc9b-b14a-4858-bfd0-09617015b83e",
+                    "label": "san_jose_dci_reduced",
+                    "value": "san_jose_dci_reduced"
+                  },
+                  {
+                    "id": "463d164b-95f4-4e9f-aff5-f969bc1723b3",
+                    "label": "san_jose_fabric_leafs_401_402_downstream_devices",
+                    "value": "san_jose_fabric_leafs_401_402_downstream_devices"
+                  },
+                  {
+                    "id": "5994afe1-a1ee-463e-be09-f536db047b9e",
+                    "label": "san_jose_fabric_leafs_403_404_downstream_devices",
+                    "value": "san_jose_fabric_leafs_403_404_downstream_devices"
+                  },
+                  {
+                    "id": "fdf7b747-e5c7-4a3c-b8c1-25303c5a7767",
+                    "label": "san_jose_fabric_leafs_405_406_downstream_devices",
+                    "value": "san_jose_fabric_leafs_405_406_downstream_devices"
+                  },
+                  {
+                    "id": "feb8fda5-6aa2-4813-9444-769a5c9e93bc",
+                    "label": "san_jose_leafs_3PCI",
+                    "value": "san_jose_leafs_3PCI"
+                  },
+                  {
+                    "id": "95070b15-2b01-413f-ac76-919831b033c8",
+                    "label": "san_jose_leafs_without_vrfs",
+                    "value": "san_jose_leafs_without_vrfs"
+                  },
+                  {
+                    "id": "4b0b1d1e-a8e6-4775-ab51-f50ec1ea0824",
+                    "label": "san_jose_oob",
+                    "value": "san_jose_oob"
+                  },
+                  {
+                    "id": "747df5cc-6ec2-4e17-b95f-a3075368add1",
+                    "label": "san_jose_spines",
+                    "value": "san_jose_spines"
+                  },
+                  {
+                    "id": "cbef1d8f-eda5-4e79-8acd-536b44239611",
+                    "label": "sanjose_internet_reduced_commands",
+                    "value": "sanjose_internet_reduced_commands"
+                  },
+                  {
+                    "id": "99b89b09-5594-49cf-8de4-391d3770ea51",
+                    "label": "sanjose_mpls_reduced",
+                    "value": "sanjose_mpls_reduced"
+                  },
+                  {
+                    "id": "64037294-e40b-461c-b30e-c5d38730b8ef",
+                    "label": "sanjose_null_router",
+                    "value": "sanjose_null_router"
+                  }
+                ],
+                "binding": false,
+                "rel": "collection",
+                "targetPointer": "/enum"
+              }
+            ]
+          }
+        ],
+        "title": "Combinations 1"
+      },
+      {
+        "nodeId": "5b106d4b-5d6b-498b-9b57-2bf3c3343a37",
+        "type": "array",
+        "description": "",
+        "items": [
+          {
+            "nodeId": "07fdd75f-35eb-4faf-8180-498939c3afbe",
+            "type": "string",
+            "title": "Designation",
+            "description": "",
+            "placeholder": "Enter text",
+            "required": true,
+            "readOnly": false,
+            "binding": false,
+            "rel": "item",
+            "targetPointer": "/default"
+          }
+        ],
+        "title": "Tags",
+        "uniqueItems": true,
+        "minItems": 1
+      }
+    ]
+  },
+  "schema": {
+    "title": "Run Regional Hub",
+    "description": "",
+    "type": "object",
+    "required": [],
+    "properties": {
+      "tags": {
+        "type": "array",
+        "title": "Tags",
+        "description": "",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "object",
+          "required": [
+            "designation"
+          ],
+          "properties": {
+            "designation": {
+              "type": "string",
+              "title": "Designation",
+              "description": ""
+            }
+          }
+        }
+      }
+    },
+    "anyOf": [
+      {
+        "title": "Run Entire Region",
+        "properties": {
+          "region": {
+            "type": "string",
+            "title": "Region",
+            "description": "",
+            "enum": [
+              "Ashburn",
+              "San Jose",
+              "Seattle"
+            ]
+          }
+        }
+      },
+      {
+        "title": "Run File",
+        "properties": {
+          "region": {
+            "type": "string",
+            "title": "Region",
+            "description": "",
+            "enum": [
+              "Ashburn",
+              "San Jose",
+              "Seattle"
+            ]
+          },
+          "file": {
+            "type": "string",
+            "title": "File",
+            "description": "",
+            "enum": [
+              "san_jose_apics",
+              "san_jose_dci_reduced",
+              "san_jose_fabric_leafs_401_402_downstream_devices",
+              "san_jose_fabric_leafs_403_404_downstream_devices",
+              "san_jose_fabric_leafs_405_406_downstream_devices",
+              "san_jose_leafs_3PCI",
+              "san_jose_leafs_without_vrfs",
+              "san_jose_oob",
+              "san_jose_spines",
+              "sanjose_internet_reduced_commands",
+              "sanjose_mpls_reduced",
+              "sanjose_null_router"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "uiSchema": {
+    "combinations1": {
+      "ui:collapseByDefault": false,
+      "runEntireRegion": {
+        "ui:collapseByDefault": false,
+        "region": {
+          "ui:placeholder": "Select an item"
+        }
+      },
+      "runFile": {
+        "ui:collapseByDefault": false,
+        "region": {
+          "ui:placeholder": "Select an item"
+        },
+        "file": {
+          "ui:placeholder": "Select an item"
+        }
+      }
+    },
+    "tags": {
+      "items": {
+        "designation": {
+          "ui:placeholder": "Enter text"
+        }
+      }
+    }
+  },
+  "bindingSchema": {
+    "anyOf": [],
+    "properties": {
+      "combinations1": {
+        "properties": {
+          "runEntireRegion": {
+            "properties": {}
+          },
+          "runFile": {
+            "properties": {}
+          }
+        }
+      },
+      "tags": {
+        "items": {
+          "properties": {}
+        }
+      }
+    }
+  },
+  "validationSchema": {
+    "combinations1": {
+      "runEntireRegion": {},
+      "runFile": {}
+    },
+    "tags": {}
+  },
+  "version": "2020.1"
+}
