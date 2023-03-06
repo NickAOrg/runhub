@@ -1,0 +1,341 @@
+{
+  "bundleName": "@capitalone/run-regional-hub",
+  "version": "0.0.1",
+  "fingerprint": "64063bc3faf785276848b140",
+  "createdEpoch": "1678130115338",
+  "artifacts": [
+    {
+      "id": "Run Regional Hub",
+      "name": "Run Regional Hub",
+      "type": "automation",
+      "location": "/bundles/automations/Run Regional Hub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Run Regional Hub",
+      "name": "Run Regional Hub",
+      "type": "workflow",
+      "location": "/bundles/workflows/Run Regional Hub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Get Region File(s) from GitHub",
+      "name": "Get Region File(s) from GitHub",
+      "type": "workflow",
+      "location": "/bundles/workflows/Get Region File(s) from GitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Run Regional Hub File",
+      "name": "Run Regional Hub File",
+      "type": "workflow",
+      "location": "/bundles/workflows/Run Regional Hub File.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Get File - GitHub",
+      "name": "Get File - GitHub",
+      "type": "workflow",
+      "location": "/bundles/workflows/Get File - GitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "runCommonDevicesCommandSets",
+      "name": "runCommonDevicesCommandSets",
+      "type": "workflow",
+      "location": "/bundles/workflows/runCommonDevicesCommandSets.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "runUniqueDevicesCommands",
+      "name": "runUniqueDevicesCommands",
+      "type": "workflow",
+      "location": "/bundles/workflows/runUniqueDevicesCommands.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "runCommandArrayonDevice",
+      "name": "runCommandArrayonDevice",
+      "type": "workflow",
+      "location": "/bundles/workflows/runCommandArrayonDevice.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "RunCommandsandPushToGitHub",
+      "name": "RunCommandsandPushToGitHub",
+      "type": "workflow",
+      "location": "/bundles/workflows/RunCommandsandPushToGitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "RunNetmikoCommands",
+      "name": "RunNetmikoCommands",
+      "type": "workflow",
+      "location": "/bundles/workflows/RunNetmikoCommands.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Files to GitHub",
+      "name": "Push Files to GitHub",
+      "type": "workflow",
+      "location": "/bundles/workflows/Push Files to GitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Run Regional Hub",
+      "name": "Run Regional Hub",
+      "type": "json-forms",
+      "location": "/bundles/json_forms/Run Regional Hub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e15fbf6cdd285d5d39a935",
+      "name": "buildRunRegionalHubJobDescription",
+      "type": "transformation",
+      "location": "/bundles/transformations/buildRunRegionalHubJobDescription.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63f3d4f859b8702a8c6b78ce",
+      "name": "GetChildJobLoopReports",
+      "type": "transformation",
+      "location": "/bundles/transformations/GetChildJobLoopReports.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63daa8ff99d6ef6162a28b49",
+      "name": "runRegionalHubFormData",
+      "type": "transformation",
+      "location": "/bundles/transformations/runRegionalHubFormData.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63f3cc3a59b8702a8c6b78cd",
+      "name": "Run Regional Hub File (1)",
+      "type": "transformation",
+      "location": "/bundles/transformations/Run Regional Hub File (1).json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63dadc5099d6ef6162a28b50",
+      "name": "childJobLoopCheck",
+      "type": "transformation",
+      "location": "/bundles/transformations/childJobLoopCheck.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63f3bc1e59b8702a8c6b78c8",
+      "name": "GetRegionDir",
+      "type": "transformation",
+      "location": "/bundles/transformations/GetRegionDir.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63f3bcdc59b8702a8c6b78c9",
+      "name": "GetGitHubFiles",
+      "type": "transformation",
+      "location": "/bundles/transformations/GetGitHubFiles.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63f3bde559b8702a8c6b78ca",
+      "name": "Get File - GitHub",
+      "type": "transformation",
+      "location": "/bundles/transformations/Get File - GitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63f3c1df59b8702a8c6b78cb",
+      "name": "GetFileContentsFromChildLoop ",
+      "type": "transformation",
+      "location": "/bundles/transformations/GetFileContentsFromChildLoop .json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63dd5199be82950afcced645",
+      "name": "UpdateResultsObject",
+      "type": "transformation",
+      "location": "/bundles/transformations/UpdateResultsObject.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63db182799d6ef6162a28b54",
+      "name": "runCommonDevicesCommandSets",
+      "type": "transformation",
+      "location": "/bundles/transformations/runCommonDevicesCommandSets.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63dab21199d6ef6162a28b4a",
+      "name": "ParseRegionalHubData",
+      "type": "transformation",
+      "location": "/bundles/transformations/ParseRegionalHubData.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63db221a99d6ef6162a28b57",
+      "name": "runUniqueDevicesCommands",
+      "type": "transformation",
+      "location": "/bundles/transformations/runUniqueDevicesCommands.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e0489fbe82950afcced649",
+      "name": "CreateResultsReport",
+      "type": "transformation",
+      "location": "/bundles/transformations/CreateResultsReport.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63dabf4a99d6ef6162a28b4b",
+      "name": "ParseCommonDevicesCommandSets",
+      "type": "transformation",
+      "location": "/bundles/transformations/ParseCommonDevicesCommandSets.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63db112d99d6ef6162a28b52",
+      "name": "runCommandArrayonDevice (1)",
+      "type": "transformation",
+      "location": "/bundles/transformations/runCommandArrayonDevice (1).json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63db1e9599d6ef6162a28b55",
+      "name": "parseUniqueDevicesCommands",
+      "type": "transformation",
+      "location": "/bundles/transformations/parseUniqueDevicesCommands.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63dad6d999d6ef6162a28b4f",
+      "name": "RunCommandsandPushToGitHub (1)",
+      "type": "transformation",
+      "location": "/bundles/transformations/RunCommandsandPushToGitHub (1).json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63dacd5b99d6ef6162a28b4e",
+      "name": "runCommandArrayonDeviceInput",
+      "type": "transformation",
+      "location": "/bundles/transformations/runCommandArrayonDeviceInput.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63dc32dcbe82950afcced644",
+      "name": "buildJobDescription",
+      "type": "transformation",
+      "location": "/bundles/transformations/buildJobDescription.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63d8191d99d6ef6162a28b3f",
+      "name": "parseNetmikoSendCommandforGitHub (1)",
+      "type": "transformation",
+      "location": "/bundles/transformations/parseNetmikoSendCommandforGitHub (1).json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63d966e399d6ef6162a28b40",
+      "name": "CreateNetmikoInput",
+      "type": "transformation",
+      "location": "/bundles/transformations/CreateNetmikoInput.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e0439fbe82950afcced648",
+      "name": "createResultObjectFromNetmikoResult",
+      "type": "transformation",
+      "location": "/bundles/transformations/createResultObjectFromNetmikoResult.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e056aabe82950afcced64a",
+      "name": "createResultObject",
+      "type": "transformation",
+      "location": "/bundles/transformations/createResultObject.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "61575550f19f3400ded634bd",
+      "name": "convertObjecttoStringGithubSingleRepo",
+      "type": "transformation",
+      "location": "/bundles/transformations/convertObjecttoStringGithubSingleRepo.json",
+      "properties": {
+        "entryPoint": false
+      }
+    }
+  ]
+}
