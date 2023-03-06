@@ -1,0 +1,179 @@
+{
+  "_id": "63f3bc1e59b8702a8c6b78c8",
+  "name": "GetRegionDir",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "runFile",
+      "type": "string",
+      "examples": [
+        "San Jose/San Jose ALL%2Ejson"
+      ]
+    },
+    {
+      "$id": "repoName",
+      "type": "string"
+    },
+    {
+      "$id": "repoOwner",
+      "type": "string"
+    },
+    {
+      "$id": "branchName",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "RegionDir",
+      "type": "string"
+    },
+    {
+      "$id": "repoName",
+      "type": "string"
+    },
+    {
+      "$id": "repoOwner",
+      "type": "string"
+    },
+    {
+      "$id": "branchName",
+      "type": "string"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "method",
+      "library": "String",
+      "method": "split",
+      "args": [
+        null,
+        "/",
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "runFile",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 3,
+      "type": "method",
+      "library": "Array",
+      "method": "getIndex",
+      "args": [
+        null,
+        0
+      ],
+      "view": {
+        "row": 1,
+        "col": 2
+      }
+    },
+    {
+      "id": 4,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 3,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 5,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 3,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "RegionDir",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 6,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "repoName",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "repoName",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 7,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "repoOwner",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "repoOwner",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 8,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "branchName",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "branchName",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-02-20T18:29:50.340Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-20T18:42:05.851Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
