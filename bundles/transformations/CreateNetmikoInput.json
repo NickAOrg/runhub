@@ -1,0 +1,686 @@
+{
+  "_id": "63d966e399d6ef6162a28b40",
+  "name": "CreateNetmikoInput",
+  "description": "Builds the input object for the netmiko task.",
+  "incoming": [
+    {
+      "$id": "commands",
+      "type": "array"
+    },
+    {
+      "$id": "host",
+      "type": "string"
+    },
+    {
+      "$id": "deviceType",
+      "type": "string"
+    },
+    {
+      "$id": "port",
+      "type": "number"
+    },
+    {
+      "$id": "username",
+      "type": "string"
+    },
+    {
+      "$id": "password",
+      "type": "string"
+    },
+    {
+      "$id": "fast_cli",
+      "type": "boolean"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "netmikoSendCommandParameters",
+      "type": "object"
+    }
+  ],
+  "steps": [
+    {
+      "id": 12,
+      "type": "function",
+      "function": "userFunc_2",
+      "args": [
+        "",
+        "",
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 3
+      }
+    },
+    {
+      "id": 13,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "commands",
+        "ptr": ""
+      },
+      "to": {
+        "location": "function",
+        "name": 12,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 20,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "host",
+        "ptr": ""
+      },
+      "to": {
+        "location": "function",
+        "name": 12,
+        "ptr": "/args/1/value"
+      }
+    },
+    {
+      "id": 21,
+      "type": "assign",
+      "from": {
+        "location": "function",
+        "name": 12,
+        "ptr": "/return/netmikoSendCommandParameters"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "netmikoSendCommandParameters",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 22,
+      "type": "method",
+      "library": "Object",
+      "method": "setProperty",
+      "args": [
+        null,
+        "password",
+        null
+      ],
+      "view": {
+        "row": 4,
+        "col": 1
+      }
+    },
+    {
+      "id": 23,
+      "type": "method",
+      "library": "Object",
+      "method": "setProperty",
+      "args": [
+        {},
+        "fast_cli",
+        null
+      ],
+      "view": {
+        "row": 3,
+        "col": 1
+      }
+    },
+    {
+      "id": 24,
+      "type": "method",
+      "library": "Object",
+      "method": "setProperty",
+      "args": [
+        null,
+        "username",
+        null
+      ],
+      "view": {
+        "row": 4,
+        "col": 2
+      }
+    },
+    {
+      "id": 25,
+      "type": "method",
+      "library": "Object",
+      "method": "setProperty",
+      "args": [
+        null,
+        "port",
+        null
+      ],
+      "view": {
+        "row": 3,
+        "col": 2
+      }
+    },
+    {
+      "id": 26,
+      "type": "method",
+      "library": "Object",
+      "method": "setProperty",
+      "args": [
+        null,
+        "device_type",
+        null
+      ],
+      "view": {
+        "row": 2,
+        "col": 2
+      }
+    },
+    {
+      "id": 27,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 26,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "function",
+        "name": 12,
+        "ptr": "/args/2/value"
+      }
+    },
+    {
+      "id": 28,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "deviceType",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 26,
+        "ptr": "/args/2/value"
+      }
+    },
+    {
+      "id": 29,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 25,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 26,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 30,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 24,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 25,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 31,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 22,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 24,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 32,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 23,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 22,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 33,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "port",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 25,
+        "ptr": "/args/2/value"
+      }
+    },
+    {
+      "id": 34,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "username",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 24,
+        "ptr": "/args/2/value"
+      }
+    },
+    {
+      "id": 35,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "password",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 22,
+        "ptr": "/args/2/value"
+      }
+    },
+    {
+      "id": 36,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "fast_cli",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 23,
+        "ptr": "/args/2/value"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "$id": "deviceType",
+          "type": "string"
+        },
+        {
+          "$id": "port",
+          "type": "number"
+        },
+        {
+          "$id": "username",
+          "type": "string"
+        },
+        {
+          "$id": "password",
+          "type": "string"
+        },
+        {
+          "$id": "Global%20Delay%20Factor",
+          "type": "number"
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "connection_options",
+          "type": "object",
+          "properties": {
+            "device_type": {
+              "type": "string"
+            },
+            "port": {
+              "type": "number"
+            },
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "global_delay_factor": {
+              "type": "number"
+            }
+          },
+          "required": []
+        }
+      ],
+      "functions": [],
+      "name": "userFunc_1",
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "password",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connection_options",
+            "ptr": "/password"
+          }
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "username",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connection_options",
+            "ptr": "/username"
+          }
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "deviceType",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connection_options",
+            "ptr": "/device_type"
+          }
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "port",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connection_options",
+            "ptr": "/port"
+          }
+        },
+        {
+          "id": 5,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "global_delay_factor",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connection_options",
+            "ptr": "/global_delay_factor"
+          }
+        }
+      ],
+      "view": {
+        "col": 2,
+        "row": 6
+      },
+      "id": "userFunc_1",
+      "comments": []
+    },
+    {
+      "incoming": [
+        {
+          "$id": "commands",
+          "type": "array"
+        },
+        {
+          "$id": "host",
+          "type": "string"
+        },
+        {
+          "$id": "connection_options",
+          "type": "object"
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "netmikoSendCommandParameters",
+          "type": "object",
+          "properties": {
+            "commands": {
+              "type": "array"
+            },
+            "host": {
+              "type": "string"
+            },
+            "connection_options": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          },
+          "required": []
+        }
+      ],
+      "functions": [],
+      "name": "userFunc_2",
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "commands",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "netmikoSendCommandParameters",
+            "ptr": "/commands"
+          }
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "host",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "netmikoSendCommandParameters",
+            "ptr": "/host"
+          }
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "connection_options",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "netmikoSendCommandParameters",
+            "ptr": "/connection_options"
+          }
+        }
+      ],
+      "view": {
+        "col": 1,
+        "row": 6
+      },
+      "id": "userFunc_2",
+      "comments": []
+    },
+    {
+      "incoming": [
+        {
+          "$id": "deviceType",
+          "type": "string"
+        },
+        {
+          "$id": "port",
+          "type": "number"
+        },
+        {
+          "$id": "username",
+          "type": "string"
+        },
+        {
+          "$id": "password",
+          "type": "string"
+        },
+        {
+          "$id": "fast_cli",
+          "type": "boolean"
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "connectionOptions",
+          "type": "object",
+          "properties": {
+            "device_type": {
+              "type": "string"
+            },
+            "port": {
+              "type": "number",
+              "examples": [
+                22
+              ]
+            },
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "fast_cli": {
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            }
+          },
+          "required": []
+        }
+      ],
+      "functions": [],
+      "name": "userFunc_3",
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "fast_cli",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connectionOptions",
+            "ptr": "/fast_cli"
+          }
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "username",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connectionOptions",
+            "ptr": "/username"
+          }
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "port",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connectionOptions",
+            "ptr": "/port"
+          }
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "deviceType",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connectionOptions",
+            "ptr": "/device_type"
+          }
+        },
+        {
+          "id": 5,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "password",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "connectionOptions",
+            "ptr": "/password"
+          }
+        }
+      ],
+      "view": {
+        "col": 1,
+        "row": 6
+      },
+      "id": "userFunc_3",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 3,
+    "row": 5
+  },
+  "created": "2023-02-02T21:16:19.513Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-27T19:03:54.258Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
