@@ -1,0 +1,367 @@
+{
+  "_id": "63e0439fbe82950afcced648",
+  "name": "createResultObjectFromNetmikoResult",
+  "description": "Creates a report object with the netmiko results.",
+  "incoming": [
+    {
+      "$id": "netmikoResult",
+      "type": "object",
+      "properties": {
+        "icode": {
+          "type": "string",
+          "examples": [
+            "AD%2E200"
+          ]
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string",
+              "examples": [
+                "snjintionrtr002"
+              ]
+            },
+            "commands": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "examples": [
+                  "show environment"
+                ]
+              },
+              "$id": "commands"
+            },
+            "status": {
+              "type": "string",
+              "examples": [
+                "SUCCESS"
+              ]
+            },
+            "response": {
+              "type": "object",
+              "properties": {
+                "show environment": {
+                  "type": "string",
+                  "examples": [
+                    "\nNumber of Critical alarms:  0\nNumber of Major alarms:     0\nNumber of Minor alarms:     0\n\n Slot        Sensor          Current State   Reading        Threshold(Minor,Major,Critical,Shutdown)\n ----------  --------------  --------------- ------------   ---------------------------------------\n P0          Vin             Normal          206   V AC   \tna\n P0          Iin             Normal          2     A      \tna\n P0          Vout            Normal          12    V AC   \tna\n P0          Iout            Normal          28    A      \tna\n P0          Temp1           Normal          23    Celsius\t(na ,na ,na ,na )(Celsius)\n P0          Temp2           Normal          29    Celsius\t(na ,na ,na ,na )(Celsius)\n P0          Temp3           Normal          29    Celsius\t(na ,na ,na ,na )(Celsius)\n P1          Vin             Normal          206   V AC   \tna\n P1          Iin             Normal          2     A      \tna\n P1          Vout            Normal          12    V AC   \tna\n P1          Iout            Normal          29    A      \tna\n P1          Temp1           Normal          23    Celsius\t(na ,na ,na ,na )(Celsius)\n P1          Temp2           Normal          29    Celsius\t(na ,na ,na ,na )(Celsius)\n P1          Temp3           Normal          30    Celsius\t(na ,na ,na ,na )(Celsius)\n P2          Vin             Normal          206   V AC   \tna\n P2          Iin             Normal          2     A      \tna\n P2          Vout            Normal          12    V AC   \tna\n P2          Iout            Normal          29    A      \tna\n P2          Temp1           Normal          23    Celsius\t(na ,na ,na ,na )(Celsius)\n P2          Temp2           Normal          28    Celsius\t(na ,na ,na ,na )(Celsius)\n P2          Temp3           Normal          31    Celsius\t(na ,na ,na ,na )(Celsius)\n P3          Vin             Normal          206   V AC   \tna\n P3          Iin             Normal          2     A      \tna\n P3          Vout            Normal          12    V AC   \tna\n P3          Iout            Normal          29    A      \tna\n P3          Temp1           Normal          23    Celsius\t(na ,na ,na ,na )(Celsius)\n P3          Temp2           Normal          28    Celsius\t(na ,na ,na ,na )(Celsius)\n P3          Temp3           Normal          29    Celsius\t(na ,na ,na ,na )(Celsius)\n P6          Temp1           Normal          31    Celsius\t(na ,na ,na ,na )(Celsius)\n P6          Temp: FC PWM1   Fan Speed 45%   20    Celsius\t(26 ,36 ,46 )(Celsius)\n P7          Temp1           Normal          30    Celsius\t(na ,na ,na ,na )(Celsius)\n P7          Temp: FC PWM1   Fan Speed 45%   20    Celsius\t(26 ,36 ,46 )(Celsius)\n P8          Temp1           Normal          28    Celsius\t(na ,na ,na ,na )(Celsius)\n P8          Temp: FC PWM1   Fan Speed 45%   20    Celsius\t(26 ,36 ,46 )(Celsius)\n R0          V1: VMA         Normal          1196  mV     \tna\n R0          V1: VMB         Normal          2495  mV     \tna\n R0          V1: VMC         Normal          3286  mV     \tna\n R0          V1: VMD         Normal          2490  mV     \tna\n R0          V1: VME         Normal          1791  mV     \tna\n R0          V1: VMF         Normal          1523  mV     \tna\n R0          V1: 12v         Normal          11835 mV     \tna\n R0          V1: VDD         Normal          3286  mV     \tna\n R0          V1: GP1         Normal          891   mV     \tna\n R0          V1: GP2         Normal          1191  mV     \tna\n R0          V2: VMA         Normal          1049  mV     \tna\n R0          V2: VMB         Normal          1098  mV     \tna\n R0          V2: VMD         Normal          996   mV     \tna\n R0          V2: VME         Normal          1098  mV     \tna\n R0          V2: VMF         Normal          1000  mV     \tna\n R0          V2: 12v         Normal          11850 mV     \tna\n R0          V2: VDD         Normal          3291  mV     \tna\n R0          V2: GP1         Normal          2497  mV     \tna\n R0          V2: GP2         Normal          1193  mV     \tna\n R0          Temp: Outlet    Normal          25    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n R0          Temp: CPU AIR   Normal          27    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n R0          Temp: Inlet     Normal          20    Celsius\t(45 ,55 ,65 ,72 )(Celsius)\n R0          Temp: SCBY AIR  Normal          37    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n R0          Temp: MCH DIE   Normal          48    Celsius\t(80 ,85 ,90 ,100)(Celsius)\n R0          Temp: MCH AIR   Normal          34    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n R0          Temp: C2D C0    Normal          33    Celsius\t(80 ,85 ,90 ,100)(Celsius)\n R0          Temp: C2D C1    Normal          35    Celsius\t(80 ,85 ,90 ,100)(Celsius)\n R1          V1: VMA         Normal          1196  mV     \tna\n R1          V1: VMB         Normal          2495  mV     \tna\n R1          V1: VMC         Normal          3291  mV     \tna\n R1          V1: VMD         Normal          2495  mV     \tna\n R1          V1: VME         Normal          1796  mV     \tna\n R1          V1: VMF         Normal          1528  mV     \tna\n R1          V1: 12v         Normal          11835 mV     \tna\n R1          V1: VDD         Normal          3286  mV     \tna\n R1          V1: GP1         Normal          895   mV     \tna\n R1          V1: GP2         Normal          1196  mV     \tna\n R1          V2: VMA         Normal          1044  mV     \tna\n R1          V2: VMB         Normal          1093  mV     \tna\n R1          V2: VMD         Normal          996   mV     \tna\n R1          V2: VME         Normal          1093  mV     \tna\n R1          V2: VMF         Normal          996   mV     \tna\n R1          V2: 12v         Normal          11821 mV     \tna\n R1          V2: VDD         Normal          3286  mV     \tna\n R1          V2: GP1         Normal          2497  mV     \tna\n R1          V2: GP2         Normal          1196  mV     \tna\n R1          Temp: Outlet    Normal          26    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n R1          Temp: CPU AIR   Normal          28    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n R1          Temp: Inlet     Normal          20    Celsius\t(45 ,55 ,65 ,72 )(Celsius)\n R1          Temp: SCBY AIR  Normal          35    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n R1          Temp: MCH DIE   Normal          50    Celsius\t(80 ,85 ,90 ,100)(Celsius)\n R1          Temp: MCH AIR   Normal          35    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n R1          Temp: C2D C0    Normal          33    Celsius\t(80 ,85 ,90 ,100)(Celsius)\n R1          Temp: C2D C1    Normal          37    Celsius\t(80 ,85 ,90 ,100)(Celsius)\n 2           V1: VMA         Normal          1103  mV     \tna\n 2           V1: VMB         Normal          1201  mV     \tna\n 2           V1: VMC         Normal          1499  mV     \tna\n 2           V1: VMD         Normal          1796  mV     \tna\n 2           V1: VME         Normal          2495  mV     \tna\n 2           V1: VMF         Normal          3295  mV     \tna\n 2           V1: 12v         Normal          11879 mV     \tna\n 2           V1: VDD         Normal          3286  mV     \tna\n 2           V1: GP1         Normal          749   mV     \tna\n 2           V1: GP2         Normal          895   mV     \tna\n 2           V2: VMB         Normal          996   mV     \tna\n 2           V2: VME         Normal          751   mV     \tna\n 2           V2: VMF         Normal          751   mV     \tna\n 2           V2: 12v         Normal          11894 mV     \tna\n 2           V2: VDD         Normal          3286  mV     \tna\n 2           V2: GP2         Normal          749   mV     \tna\n 2           Temp: Left      Normal          26    Celsius\t(55 ,65 ,72 ,100)(Celsius)\n 2           Temp: Center    Normal          31    Celsius\t(55 ,65 ,72 ,100)(Celsius)\n 2           Temp: Asic1     Normal          44    Celsius\t(120,120,130,140)(Celsius)\n 2           Temp: Right     Normal          29    Celsius\t(55 ,65 ,72 ,100)(Celsius)\n F0          VSeq1: VSENSE0  Normal          7000  mV     \tna\n F0          VSeq1: VSENSE1  Normal          5000  mV     \tna\n F0          VSeq1: VSENSE2  Normal          3300  mV     \tna\n F0          VSeq1: VSENSE3  Normal          1500  mV     \tna\n F0          VSeq1: VSENSE4  Normal          1799  mV     \tna\n F0          VSeq1: VSENSE5  Normal          999   mV     \tna\n F0          VSeq1: VSENSE6  Normal          1049  mV     \tna\n F0          VSeq1: VSENSE7  Normal          1000  mV     \tna\n F0          VSeq1: VIN      Normal          11953 mV     \tna\n F0          VSeq2: VSENSE0  Normal          1501  mV     \tna\n F0          VSeq2: VSENSE1  Normal          1499  mV     \tna\n F0          VSeq2: VSENSE2  Normal          1099  mV     \tna\n F0          VSeq2: VSENSE3  Normal          1500  mV     \tna\n F0          VSeq2: VSENSE4  Normal          1500  mV     \tna\n F0          VSeq2: VSENSE5  Normal          1100  mV     \tna\n F0          VSeq2: VSENSE6  Normal          1100  mV     \tna\n F0          VSeq2: VSENSE7  Normal          1200  mV     \tna\n F0          VSeq2: VIN      Normal          11968 mV     \tna\n F0          VSeq3: VSENSE1  Normal          914   mV     \tna\n F0          VSeq3: VSENSE2  Normal          1099  mV     \tna\n F0          VSeq3: VSENSE3  Normal          955   mV     \tna\n F0          VSeq3: VSENSE4  Normal          750   mV     \tna\n F0          VSeq3: VSENSE5  Normal          750   mV     \tna\n F0          VSeq3: VSENSE6  Normal          750   mV     \tna\n F0          VSeq3: VSENSE7  Normal          748   mV     \tna\n F0          VSeq3: VIN      Normal          11968 mV     \tna\n F0          Temp: Mid Left  Normal          31    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F0          Temp: OctS0Die  Normal          34    Celsius\t(110,120,130,140)(Celsius)\n F0          Temp: Out Left  Normal          33    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F0          Temp: OctS1Die  Normal          39    Celsius\t(110,120,130,140)(Celsius)\n F0          Temp: FrontMid  Normal          23    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n F0          Temp: Center    Normal          29    Celsius\t(65 ,70 ,80 ,110)(Celsius)\n F0          Temp: CPU Die   Normal          31    Celsius\t(110,120,130,140)(Celsius)\n F0          Temp: AstroDie  Normal          70    Celsius\t(110,120,130,140)(Celsius)\n F0          VSeq1: VSENSE0  Normal          7000  mV     \tna\n F0          VSeq1: VSENSE1  Normal          5000  mV     \tna\n F0          VSeq1: VSENSE2  Normal          3265  mV     \tna\n F0          VSeq1: VSENSE3  Normal          2500  mV     \tna\n F0          VSeq1: VSENSE4  Normal          1004  mV     \tna\n F0          VSeq1: VSENSE5  Normal          1004  mV     \tna\n F0          VSeq1: VSENSE6  Normal          1041  mV     \tna\n F0          VSeq1: VSENSE7  Normal          1005  mV     \tna\n F0          VSeq1: VIN      Normal          11890 mV     \tna\n F0          VSeq2: VSENSE0  Normal          1501  mV     \tna\n F0          VSeq2: VSENSE1  Normal          1498  mV     \tna\n F0          VSeq2: VSENSE2  Normal          1501  mV     \tna\n F0          VSeq2: VSENSE3  Normal          1499  mV     \tna\n F0          VSeq2: VSENSE4  Normal          1500  mV     \tna\n F0          VSeq2: VSENSE5  Normal          1199  mV     \tna\n F0          VSeq2: VSENSE6  Normal          999   mV     \tna\n F0          VSeq2: VSENSE7  Normal          1000  mV     \tna\n F0          VSeq2: VIN      Normal          11890 mV     \tna\n F0          VSeq3: VSENSE0  Normal          850   mV     \tna\n F0          VSeq3: VSENSE1  Normal          849   mV     \tna\n F0          VSeq3: VSENSE2  Normal          999   mV     \tna\n F0          VSeq3: VSENSE3  Normal          744   mV     \tna\n F0          VSeq3: VSENSE4  Normal          1499  mV     \tna\n F0          VSeq3: VSENSE5  Normal          1503  mV     \tna\n F0          VSeq3: VSENSE6  Normal          1500  mV     \tna\n F0          VSeq3: VSENSE7  Normal          1501  mV     \tna\n F0          VSeq3: VIN      Normal          11875 mV     \tna\n F0          Temp: RghtFrnt  Normal          30    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F0          Temp: Y2 Die    Normal          56    Celsius\t(110,120,130,140)(Celsius)\n F0          Temp: RghtRear  Normal          32    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F0          Temp: Y3 Die    Normal          58    Celsius\t(110,120,130,140)(Celsius)\n F0          Temp: LeftFrnt  Normal          24    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F0          Temp: Y1 Die    Normal          55    Celsius\t(110,120,130,140)(Celsius)\n F0          Temp: LeftRear  Normal          34    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F0          Temp: Y0 Die    Normal          53    Celsius\t(110,120,130,140)(Celsius)\n F1          VSeq1: VSENSE0  Normal          7000  mV     \tna\n F1          VSeq1: VSENSE1  Normal          4999  mV     \tna\n F1          VSeq1: VSENSE2  Normal          3299  mV     \tna\n F1          VSeq1: VSENSE3  Normal          1500  mV     \tna\n F1          VSeq1: VSENSE4  Normal          1799  mV     \tna\n F1          VSeq1: VSENSE5  Normal          999   mV     \tna\n F1          VSeq1: VSENSE6  Normal          1050  mV     \tna\n F1          VSeq1: VSENSE7  Normal          999   mV     \tna\n F1          VSeq1: VIN      Normal          11953 mV     \tna\n F1          VSeq2: VSENSE0  Normal          1500  mV     \tna\n F1          VSeq2: VSENSE1  Normal          1499  mV     \tna\n F1          VSeq2: VSENSE2  Normal          1099  mV     \tna\n F1          VSeq2: VSENSE3  Normal          1499  mV     \tna\n F1          VSeq2: VSENSE4  Normal          1500  mV     \tna\n F1          VSeq2: VSENSE5  Normal          1100  mV     \tna\n F1          VSeq2: VSENSE6  Normal          1099  mV     \tna\n F1          VSeq2: VSENSE7  Normal          1199  mV     \tna\n F1          VSeq2: VIN      Normal          11953 mV     \tna\n F1          VSeq3: VSENSE1  Normal          913   mV     \tna\n F1          VSeq3: VSENSE2  Normal          1099  mV     \tna\n F1          VSeq3: VSENSE3  Normal          955   mV     \tna\n F1          VSeq3: VSENSE4  Normal          750   mV     \tna\n F1          VSeq3: VSENSE5  Normal          750   mV     \tna\n F1          VSeq3: VSENSE6  Normal          749   mV     \tna\n F1          VSeq3: VSENSE7  Normal          748   mV     \tna\n F1          VSeq3: VIN      Normal          11968 mV     \tna\n F1          Temp: Mid Left  Normal          30    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F1          Temp: OctS0Die  Normal          34    Celsius\t(110,120,130,140)(Celsius)\n F1          Temp: Out Left  Normal          31    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F1          Temp: OctS1Die  Normal          36    Celsius\t(110,120,130,140)(Celsius)\n F1          Temp: FrontMid  Normal          23    Celsius\t(55 ,65 ,75 ,100)(Celsius)\n F1          Temp: Center    Normal          29    Celsius\t(65 ,70 ,80 ,110)(Celsius)\n F1          Temp: CPU Die   Normal          32    Celsius\t(110,120,130,140)(Celsius)\n F1          Temp: AstroDie  Normal          70    Celsius\t(110,120,130,140)(Celsius)\n F1          VSeq1: VSENSE0  Normal          6998  mV     \tna\n F1          VSeq1: VSENSE1  Normal          4999  mV     \tna\n F1          VSeq1: VSENSE2  Normal          3269  mV     \tna\n F1          VSeq1: VSENSE3  Normal          2500  mV     \tna\n F1          VSeq1: VSENSE4  Normal          1041  mV     \tna\n F1          VSeq1: VSENSE5  Normal          1041  mV     \tna\n F1          VSeq1: VSENSE6  Normal          1041  mV     \tna\n F1          VSeq1: VSENSE7  Normal          1042  mV     \tna\n F1          VSeq1: VIN      Normal          11890 mV     \tna\n F1          VSeq2: VSENSE0  Normal          1499  mV     \tna\n F1          VSeq2: VSENSE1  Normal          1501  mV     \tna\n F1          VSeq2: VSENSE2  Normal          1500  mV     \tna\n F1          VSeq2: VSENSE3  Normal          1500  mV     \tna\n F1          VSeq2: VSENSE4  Normal          1500  mV     \tna\n F1          VSeq2: VSENSE5  Normal          1200  mV     \tna\n F1          VSeq2: VSENSE6  Normal          1000  mV     \tna\n F1          VSeq2: VSENSE7  Normal          999   mV     \tna\n F1          VSeq2: VIN      Normal          11859 mV     \tna\n F1          VSeq3: VSENSE0  Normal          849   mV     \tna\n F1          VSeq3: VSENSE1  Normal          849   mV     \tna\n F1          VSeq3: VSENSE2  Normal          1000  mV     \tna\n F1          VSeq3: VSENSE3  Normal          744   mV     \tna\n F1          VSeq3: VSENSE4  Normal          1498  mV     \tna\n F1          VSeq3: VSENSE5  Normal          1502  mV     \tna\n F1          VSeq3: VSENSE6  Normal          1503  mV     \tna\n F1          VSeq3: VSENSE7  Normal          1502  mV     \tna\n F1          VSeq3: VIN      Normal          11875 mV     \tna\n F1          Temp: RghtFrnt  Normal          29    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F1          Temp: Y2 Die    Normal          56    Celsius\t(110,120,130,140)(Celsius)\n F1          Temp: RghtRear  Normal          30    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F1          Temp: Y3 Die    Normal          58    Celsius\t(110,120,130,140)(Celsius)\n F1          Temp: LeftFrnt  Normal          24    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F1          Temp: Y1 Die    Normal          57    Celsius\t(110,120,130,140)(Celsius)\n F1          Temp: LeftRear  Normal          32    Celsius\t(65 ,75 ,85 ,110)(Celsius)\n F1          Temp: Y0 Die    Normal          53    Celsius\t(110,120,130,140)(Celsius)\n 0           VDEV0: VX1      Normal          1047  mV     \tna\n 0           VDEV0: VX2      Normal          7056  mV     \tna\n 0           VDEV0: VX3      Normal          743   mV     \tna\n 0           VDEV0: VP1      Normal          1487  mV     \tna\n 0           VDEV0: VP2      Normal          3288  mV     \tna\n 0           VDEV0: VP3      Normal          2489  mV     \tna\n 0           VDEV0: VH       Normal          11956 mV     \tna\n 0           VDEV1: VP1      Normal          1806  mV     \tna\n 0           VDEV1: VP2      Normal          1505  mV     \tna\n 0           VDEV1: VP3      Normal          3285  mV     \tna\n 0           VDEV1: VH       Normal          11940 mV     \tna\n 0           VDEV2: VX1      Normal          988   mV     \tna\n 0           VDEV2: VX2      Normal          991   mV     \tna\n 0           VDEV2: VX3      Normal          749   mV     \tna\n 0           VDEV2: VP1      Normal          1195  mV     \tna\n 0           VDEV2: VP2      Normal          1505  mV     \tna\n 0           VDEV2: VP3      Normal          1811  mV     \tna\n 0           VDEV2: VH       Normal          11951 mV     \tna\n 0           VDEV3: VX1      Normal          739   mV     \tna\n 0           VDEV3: VX2      Normal          986   mV     \tna\n 0           VDEV3: VX3      Normal          903   mV     \tna\n 0           VDEV3: VP1      Normal          3296  mV     \tna\n 0           VDEV3: VP2      Normal          1488  mV     \tna\n 0           VDEV3: VP3      Normal          994   mV     \tna\n 0           VDEV3: VH       Normal          11935 mV     \tna\n 0           Temp: Inlet Lf  Normal          31    Celsius\t(75 ,80 ,85 ,100)(Celsius)\n 0           Temp: Inlet Ct  Normal          34    Celsius\t(75 ,80 ,85 ,100)(Celsius)\n 0           Temp: Inlet Rt  Normal          30    Celsius\t(75 ,80 ,85 ,100)(Celsius)\n 0           Iin             Normal          8870  mA     \tna\n 0           E0I             Normal          697   mA     \tna\n 0           E1I             Normal          2462  mA     \tna\n 1           VDEV0: VX1      Normal          1047  mV     \tna\n 1           VDEV0: VX2      Normal          7077  mV     \tna\n 1           VDEV0: VX3      Normal          746   mV     \tna\n 1           VDEV0: VP1      Normal          1494  mV     \tna\n 1           VDEV0: VP2      Normal          3299  mV     \tna\n 1           VDEV0: VP3      Normal          2494  mV     \tna\n 1           VDEV0: VH       Normal          11945 mV     \tna\n 1           VDEV1: VP1      Normal          1802  mV     \tna\n 1           VDEV1: VP2      Normal          1501  mV     \tna\n 1           VDEV1: VP3      Normal          3283  mV     \tna\n 1           VDEV1: VH       Normal          11961 mV     \tna\n 1           VDEV2: VX1      Normal          987   mV     \tna\n 1           VDEV2: VX2      Normal          989   mV     \tna\n 1           VDEV2: VX3      Normal          751   mV     \tna\n 1           VDEV2: VP1      Normal          1197  mV     \tna\n 1           VDEV2: VP2      Normal          1506  mV     \tna\n 1           VDEV2: VP3      Normal          1810  mV     \tna\n 1           VDEV2: VH       Normal          11940 mV     \tna\n 1           VDEV3: VX1      Normal          740   mV     \tna\n 1           VDEV3: VX2      Normal          992   mV     \tna\n 1           VDEV3: VX3      Normal          902   mV     \tna\n 1           VDEV3: VP1      Normal          3299  mV     \tna\n 1           VDEV3: VP2      Normal          1490  mV     \tna\n 1           VDEV3: VP3      Normal          996   mV     \tna\n 1           VDEV3: VH       Normal          11935 mV     \tna\n 1           Temp: Inlet Lf  Normal          30    Celsius\t(75 ,80 ,85 ,100)(Celsius)\n 1           Temp: Inlet Ct  Normal          31    Celsius\t(75 ,80 ,85 ,100)(Celsius)\n 1           Temp: Inlet Rt  Normal          29    Celsius\t(75 ,80 ,85 ,100)(Celsius)\n 1           Iin             Normal          8076  mA     \tna\n 1           E0I             Normal          684   mA     \tna\n 1           E1I             Normal          2413  mA     \tna\n\n"
+                  ]
+                },
+                "show version": {
+                  "type": "string",
+                  "examples": [
+                    "Cisco IOS XE Software, Version 17%2E06%2E04\nCisco IOS Software [Bengaluru], ASR1000 Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17%2E6%2E4, RELEASE SOFTWARE (fc1)\nTechnical Support: http://www%2Ecisco%2Ecom/techsupport\nCopyright (c) 1986-2022 by Cisco Systems, Inc%2E\nCompiled Sun 14-Aug-22 08:52 by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2022 by cisco Systems, Inc%2E\nAll rights reserved%2E  Certain components of Cisco IOS-XE software are\nlicensed under the GNU General Public License (\"GPL\") Version 2%2E0%2E  The\nsoftware code licensed under GPL Version 2%2E0 is free software that comes\nwith ABSOLUTELY NO WARRANTY%2E  You can redistribute and/or modify such\nGPL code under the terms of GPL Version 2%2E0%2E  For more details, see the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\nor the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware%2E\n\n\nROM: IOS-XE ROMMON\n\nsnjintionrtr002 uptime is 1 day, 14 hours, 41 minutes\nUptime for this control processor is 1 day, 14 hours, 45 minutes\nSystem returned to ROM by PowerOn at 03:45:21 GMT Tue Nov 1 2022\nSystem restarted at 06:02:53 GMT Thu Jan 26 2023\nSystem image file is \"harddisk:/asr1000rpx86-universalk9.17.06.04.SPA.bin\"\nLast reload reason: PowerOn\n\n\n\nThis product contains cryptographic features and is subject to United\nStates and local country laws governing import, export, transfer and\nuse%2E Delivery of Cisco cryptographic products does not imply\nthird-party authority to import, export, distribute or use encryption%2E\nImporters, exporters, distributors and users are responsible for\ncompliance with U%2ES%2E and local country laws%2E By using this product you\nagree to comply with applicable laws and regulations%2E If you are unable\nto comply with U%2ES%2E and local laws, return this product immediately%2E\n\nA summary of U%2ES%2E laws governing Cisco cryptographic products may be found at:\nhttp://www%2Ecisco%2Ecom/wwl/export/crypto/tool/stqrg%2Ehtml\n\nIf you require further assistance please contact us by sending email to\nexport@cisco%2Ecom%2E\n\nLicense Type: Smart License is permanent\nLicense Level: advipservices\nNext reload license Level: advipservices\n\nSmart Licensing Status: Registration Not Applicable/Not Applicable\n\ncisco ASR1009-X (RP2) processor (revision RP2) with 9886187K/6147K bytes of memory%2E\nProcessor board ID FXS2204Q3YD\nRouter operating mode: Autonomous\n23 Ten Gigabit Ethernet interfaces\n4 Forty Gigabit Ethernet interfaces\n32768K bytes of non-volatile configuration memory%2E\n16777216K bytes of physical memory%2E\n1884159K bytes of eUSB flash at bootflash:%2E\n78085207K bytes of SATA hard disk at harddisk:%2E\n\nConfiguration register is 0x2102\n"
+                  ]
+                }
+              },
+              "required": []
+            }
+          },
+          "required": []
+        }
+      },
+      "required": []
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "resultsObject",
+      "type": "object"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "method",
+      "library": "Array",
+      "method": "reduce",
+      "args": [
+        null,
+        "ƒ_reduce_1",
+        {},
+        null,
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "netmikoResult",
+        "ptr": "/response/commands"
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "netmikoResult",
+        "ptr": "/response/host"
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/3/value"
+      }
+    },
+    {
+      "id": 4,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "resultsObject",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 5,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "netmikoResult",
+        "ptr": "/response/status"
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/4/value"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "$id": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ]
+        },
+        {
+          "type": "string",
+          "examples": [
+            "show environment"
+          ],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "examples": [
+              "show environment"
+            ]
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {
+            "0_host": {
+              "type": "string",
+              "examples": [
+                "snjintionrtr002"
+              ]
+            },
+            "1_status": {
+              "type": "string",
+              "examples": [
+                "SUCCESS"
+              ]
+            }
+          },
+          "isContext": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "$id": "accumulator"
+        }
+      ],
+      "functions": [],
+      "name": "ƒ_reduce_1",
+      "steps": [
+        {
+          "id": 1,
+          "type": "method",
+          "library": "Object",
+          "method": "setProperty",
+          "args": [
+            null,
+            null,
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "accumulator",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/0/value"
+          }
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "accumulator",
+            "ptr": ""
+          }
+        },
+        {
+          "id": 4,
+          "type": "method",
+          "library": "String",
+          "method": "concat",
+          "args": [
+            null,
+            " ",
+            null
+          ],
+          "view": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "id": 5,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "thisArg",
+            "ptr": "/0_host"
+          },
+          "to": {
+            "location": "method",
+            "name": 4,
+            "ptr": "/args/0/value"
+          }
+        },
+        {
+          "id": 6,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 4,
+            "ptr": "/args/2/value"
+          }
+        },
+        {
+          "id": 7,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 4,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/1/value"
+          }
+        },
+        {
+          "id": 8,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "thisArg",
+            "ptr": "/1_status"
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/2/value"
+          }
+        }
+      ],
+      "view": {
+        "col": 1,
+        "row": 6
+      },
+      "id": "ƒ_reduce_1",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 1,
+    "row": 5
+  },
+  "created": "2023-02-06T00:02:39.590Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-27T19:10:22.453Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
