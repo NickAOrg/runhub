@@ -1,0 +1,602 @@
+{
+  "_id": "63daa8ff99d6ef6162a28b49",
+  "name": "runRegionalHubFormData",
+  "description": "Creates the runFile and filePath(designations/tags) from the formData",
+  "incoming": [
+    {
+      "$id": "formData",
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "designation": {
+                "type": "string",
+                "examples": [
+                  "Night 1"
+                ]
+              }
+            },
+            "required": []
+          },
+          "$id": "tags"
+        },
+        "region": {
+          "type": "string",
+          "examples": [
+            "San Jose"
+          ]
+        }
+      },
+      "required": []
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "runFile",
+      "type": "string"
+    },
+    {
+      "$id": "filePath",
+      "type": "string"
+    }
+  ],
+  "steps": [
+    {
+      "id": 17,
+      "type": "method",
+      "library": "Logical",
+      "method": "nullish",
+      "args": [
+        null,
+        null
+      ],
+      "view": {
+        "row": 2,
+        "col": 2
+      }
+    },
+    {
+      "id": 42,
+      "type": "method",
+      "library": "Array",
+      "method": "reduce",
+      "args": [
+        null,
+        "ƒ_reduce_2",
+        null
+      ],
+      "view": {
+        "row": 3,
+        "col": 2
+      }
+    },
+    {
+      "id": 44,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 42,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "filePath",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 45,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/region"
+      },
+      "to": {
+        "location": "method",
+        "name": 42,
+        "ptr": "/args/2/value"
+      }
+    },
+    {
+      "id": 46,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/tags"
+      },
+      "to": {
+        "location": "method",
+        "name": 42,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 48,
+      "type": "method",
+      "library": "String",
+      "method": "concat",
+      "args": [
+        null,
+        "/",
+        null,
+        ".json"
+      ],
+      "view": {
+        "row": 1,
+        "col": 3
+      }
+    },
+    {
+      "id": 49,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/region"
+      },
+      "to": {
+        "location": "method",
+        "name": 48,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 50,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 17,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 48,
+        "ptr": "/args/2/value"
+      }
+    },
+    {
+      "id": 51,
+      "type": "method",
+      "library": "String",
+      "method": "trim",
+      "args": [
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 4
+      }
+    },
+    {
+      "id": 52,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 48,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 51,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 53,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 51,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "runFile",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 54,
+      "type": "method",
+      "library": "Object",
+      "method": "getProperty",
+      "args": [
+        null,
+        "file"
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      }
+    },
+    {
+      "id": 55,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 54,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 56,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 54,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 17,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 57,
+      "type": "method",
+      "library": "String",
+      "method": "concat",
+      "args": [
+        null,
+        " ",
+        "All"
+      ],
+      "view": {
+        "row": 3,
+        "col": 1
+      }
+    },
+    {
+      "id": 58,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/region"
+      },
+      "to": {
+        "location": "method",
+        "name": 57,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 59,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 57,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 17,
+        "ptr": "/args/1/value"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "$id": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "designation": {
+              "type": "string",
+              "examples": [
+                "night 1"
+              ]
+            }
+          },
+          "required": [],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "designation": {
+                "type": "string",
+                "examples": [
+                  "night 1"
+                ]
+              }
+            },
+            "required": []
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true,
+          "isThis": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "$id": "accumulator"
+        }
+      ],
+      "functions": [],
+      "name": "ƒ_reduce_1",
+      "steps": [
+        {
+          "id": 5,
+          "type": "method",
+          "library": "String",
+          "method": "concat",
+          "args": [
+            null,
+            ", ",
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "id": 6,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "accumulator",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 5,
+            "ptr": "/args/0/value"
+          }
+        },
+        {
+          "id": 7,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 5,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "accumulator",
+            "ptr": ""
+          }
+        },
+        {
+          "id": 8,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/designation"
+          },
+          "to": {
+            "location": "method",
+            "name": 5,
+            "ptr": "/args/2/value"
+          }
+        }
+      ],
+      "view": {
+        "col": 3,
+        "row": 6
+      },
+      "id": "ƒ_reduce_1",
+      "comments": []
+    },
+    {
+      "incoming": [
+        {
+          "type": "string",
+          "examples": [
+            "Pre"
+          ],
+          "$id": "accumulator"
+        },
+        {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "$id": "accumulator"
+        }
+      ],
+      "functions": [],
+      "name": "ƒ_reduce_2",
+      "steps": [
+        {
+          "id": 1,
+          "type": "method",
+          "library": "String",
+          "method": "concat",
+          "args": [
+            null,
+            ", ",
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "accumulator",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/0/value"
+          }
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "accumulator",
+            "ptr": ""
+          }
+        },
+        {
+          "id": 5,
+          "type": "method",
+          "library": "Object",
+          "method": "getProperty",
+          "args": [
+            null,
+            "designation"
+          ],
+          "view": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "id": 6,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 5,
+            "ptr": "/args/0/value"
+          }
+        },
+        {
+          "id": 7,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 5,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/2/value"
+          }
+        }
+      ],
+      "view": {
+        "col": 1,
+        "row": 6
+      },
+      "id": "ƒ_reduce_2",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 4,
+    "row": 5
+  },
+  "created": "2023-02-02T21:16:19.505Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-27T20:04:15.612Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
