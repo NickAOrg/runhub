@@ -1,0 +1,185 @@
+{
+  "_id": "63dacd5b99d6ef6162a28b4e",
+  "name": "runCommandArrayonDeviceInput",
+  "description": "Requires all job variables for job run.",
+  "incoming": [
+    {
+      "$id": "device",
+      "type": "string"
+    },
+    {
+      "$id": "deviceType",
+      "type": "string"
+    },
+    {
+      "$id": "port",
+      "type": "number"
+    },
+    {
+      "$id": "username",
+      "type": "string"
+    },
+    {
+      "$id": "password",
+      "type": "string"
+    },
+    {
+      "$id": "filePath",
+      "type": "string"
+    },
+    {
+      "$id": "commandsArray",
+      "type": "array"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "device",
+      "type": "string"
+    },
+    {
+      "$id": "deviceType",
+      "type": "string"
+    },
+    {
+      "$id": "port",
+      "type": "number"
+    },
+    {
+      "$id": "username",
+      "type": "string"
+    },
+    {
+      "$id": "password",
+      "type": "string"
+    },
+    {
+      "$id": "filePath",
+      "type": "string"
+    },
+    {
+      "$id": "commandsArray",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "device",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "device",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "deviceType",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "deviceType",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "port",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "port",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 4,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "username",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "username",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 5,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "password",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "password",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 6,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "filePath",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "filePath",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 7,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "commandsArray",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "commandsArray",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [],
+  "comments": [],
+  "view": {
+    "col": 0,
+    "row": 5
+  },
+  "created": "2023-02-02T21:16:19.501Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-27T19:30:08.443Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
