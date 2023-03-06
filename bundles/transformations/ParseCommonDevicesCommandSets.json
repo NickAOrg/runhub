@@ -1,0 +1,745 @@
+{
+  "_id": "63dabf4a99d6ef6162a28b4b",
+  "name": "ParseCommonDevicesCommandSets",
+  "description": "Separates individual variables form the CommonDevicesCommandSets and builds a default resultsObject. ",
+  "incoming": [
+    {
+      "$id": "CommonDevicesCommandSets",
+      "type": "object",
+      "properties": {
+        "devices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "$id": "devices"
+        },
+        "deviceType": {
+          "type": "string",
+          "examples": [
+            "ios"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "examples": [
+            "admin"
+          ]
+        },
+        "port": {
+          "type": "integer",
+          "examples": [
+            22
+          ]
+        },
+        "commands": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "examples": [
+                "cmd_1",
+                "cmd_3"
+              ]
+            }
+          },
+          "$id": "commands"
+        }
+      },
+      "required": []
+    },
+    {
+      "$id": "filePath",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "devices",
+      "type": "array"
+    },
+    {
+      "$id": "deviceType",
+      "type": "string"
+    },
+    {
+      "$id": "username",
+      "type": "string"
+    },
+    {
+      "$id": "port",
+      "type": "number"
+    },
+    {
+      "$id": "commands",
+      "type": "array"
+    },
+    {
+      "$id": "filePath",
+      "type": "string"
+    },
+    {
+      "$id": "resultsObject",
+      "type": "object"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "CommonDevicesCommandSets",
+        "ptr": "/devices"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "devices",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "CommonDevicesCommandSets",
+        "ptr": "/deviceType"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "deviceType",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "CommonDevicesCommandSets",
+        "ptr": "/username"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "username",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 4,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "CommonDevicesCommandSets",
+        "ptr": "/port"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "port",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 5,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "CommonDevicesCommandSets",
+        "ptr": "/commands"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "commands",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 6,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "filePath",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "filePath",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 7,
+      "type": "method",
+      "library": "Array",
+      "method": "reduce",
+      "args": [
+        null,
+        "ƒ_reduce_1",
+        {},
+        null
+      ],
+      "view": {
+        "row": 4,
+        "col": 1
+      }
+    },
+    {
+      "id": 8,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "CommonDevicesCommandSets",
+        "ptr": "/devices"
+      },
+      "to": {
+        "location": "method",
+        "name": 7,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 9,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "CommonDevicesCommandSets",
+        "ptr": "/commands"
+      },
+      "to": {
+        "location": "method",
+        "name": 7,
+        "ptr": "/args/3/value"
+      }
+    },
+    {
+      "id": 10,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 7,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "resultsObject",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "$id": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ]
+        },
+        {
+          "type": "string",
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {
+            "0_commands": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "examples": [
+                    "cmd_1",
+                    "cmd_3"
+                  ]
+                }
+              }
+            }
+          },
+          "isContext": true,
+          "isThis": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "accumulator",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "$id": "accumulator"
+        }
+      ],
+      "functions": [
+        {
+          "incoming": [
+            {
+              "$id": "accumulator",
+              "type": [
+                "array",
+                "boolean",
+                "number",
+                "integer",
+                "string",
+                "object",
+                "null"
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "examples": [
+                  "cmd_1",
+                  "cmd_3"
+                ]
+              },
+              "$id": "currentValue"
+            },
+            {
+              "title": "index",
+              "type": "number",
+              "optional": true,
+              "$id": "index"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "examples": [
+                    "cmd_1",
+                    "cmd_3"
+                  ]
+                }
+              },
+              "$id": "array",
+              "optional": true
+            },
+            {
+              "$id": "thisArg",
+              "type": "object",
+              "properties": {
+                "0_currentValue": {
+                  "type": "string",
+                  "$id": "currentValue"
+                }
+              },
+              "isContext": true,
+              "isThis": true,
+              "isIndexed": true
+            }
+          ],
+          "outgoing": [
+            {
+              "title": "accumulator",
+              "type": [
+                "array",
+                "boolean",
+                "number",
+                "integer",
+                "string",
+                "object",
+                "null"
+              ],
+              "$id": "accumulator"
+            }
+          ],
+          "functions": [
+            {
+              "incoming": [
+                {
+                  "$id": "accumulator",
+                  "type": [
+                    "array",
+                    "boolean",
+                    "number",
+                    "integer",
+                    "string",
+                    "object",
+                    "null"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "examples": [
+                    "cmd_1",
+                    "cmd_3"
+                  ],
+                  "$id": "currentValue"
+                },
+                {
+                  "title": "index",
+                  "type": "number",
+                  "optional": true,
+                  "$id": "index"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "examples": [
+                      "cmd_1",
+                      "cmd_3"
+                    ]
+                  },
+                  "$id": "array",
+                  "optional": true
+                },
+                {
+                  "$id": "thisArg",
+                  "type": "object",
+                  "properties": {
+                    "0_currentValue": {
+                      "type": "string",
+                      "$id": "currentValue"
+                    }
+                  },
+                  "isContext": true,
+                  "isThis": true,
+                  "isIndexed": true
+                }
+              ],
+              "outgoing": [
+                {
+                  "title": "accumulator",
+                  "type": [
+                    "array",
+                    "boolean",
+                    "number",
+                    "integer",
+                    "string",
+                    "object",
+                    "null"
+                  ],
+                  "$id": "accumulator"
+                }
+              ],
+              "functions": [],
+              "name": "ƒ_reduce_1",
+              "steps": [
+                {
+                  "id": 1,
+                  "type": "method",
+                  "library": "Object",
+                  "method": "setProperty",
+                  "args": [
+                    null,
+                    null,
+                    "FAILURE"
+                  ],
+                  "view": {
+                    "row": 1,
+                    "col": 1
+                  }
+                },
+                {
+                  "id": 2,
+                  "type": "method",
+                  "library": "String",
+                  "method": "concat",
+                  "args": [
+                    null,
+                    " ",
+                    null
+                  ],
+                  "view": {
+                    "row": 2,
+                    "col": 1
+                  }
+                },
+                {
+                  "id": 3,
+                  "type": "assign",
+                  "from": {
+                    "location": "incoming",
+                    "name": "thisArg",
+                    "ptr": "/0_currentValue"
+                  },
+                  "to": {
+                    "location": "method",
+                    "name": 2,
+                    "ptr": "/args/0/value"
+                  }
+                },
+                {
+                  "id": 4,
+                  "type": "assign",
+                  "from": {
+                    "location": "incoming",
+                    "name": "currentValue",
+                    "ptr": ""
+                  },
+                  "to": {
+                    "location": "method",
+                    "name": 2,
+                    "ptr": "/args/2/value"
+                  }
+                },
+                {
+                  "id": 5,
+                  "type": "assign",
+                  "from": {
+                    "location": "method",
+                    "name": 2,
+                    "ptr": "/return"
+                  },
+                  "to": {
+                    "location": "method",
+                    "name": 1,
+                    "ptr": "/args/1/value"
+                  }
+                },
+                {
+                  "id": 6,
+                  "type": "assign",
+                  "from": {
+                    "location": "incoming",
+                    "name": "accumulator",
+                    "ptr": ""
+                  },
+                  "to": {
+                    "location": "method",
+                    "name": 1,
+                    "ptr": "/args/0/value"
+                  }
+                },
+                {
+                  "id": 7,
+                  "type": "assign",
+                  "from": {
+                    "location": "method",
+                    "name": 1,
+                    "ptr": "/return"
+                  },
+                  "to": {
+                    "location": "outgoing",
+                    "name": "accumulator",
+                    "ptr": ""
+                  }
+                }
+              ],
+              "view": {
+                "col": 1,
+                "row": 6
+              },
+              "id": "ƒ_reduce_1",
+              "comments": []
+            }
+          ],
+          "name": "ƒ_reduce_1",
+          "steps": [
+            {
+              "id": 1,
+              "type": "method",
+              "library": "Array",
+              "method": "reduce",
+              "args": [
+                null,
+                "ƒ_reduce_1",
+                null,
+                null
+              ],
+              "view": {
+                "row": 2,
+                "col": 1
+              }
+            },
+            {
+              "id": 2,
+              "type": "assign",
+              "from": {
+                "location": "incoming",
+                "name": "currentValue",
+                "ptr": ""
+              },
+              "to": {
+                "location": "method",
+                "name": 1,
+                "ptr": "/args/0/value"
+              }
+            },
+            {
+              "id": 3,
+              "type": "assign",
+              "from": {
+                "location": "incoming",
+                "name": "accumulator",
+                "ptr": ""
+              },
+              "to": {
+                "location": "method",
+                "name": 1,
+                "ptr": "/args/2/value"
+              }
+            },
+            {
+              "id": 4,
+              "type": "assign",
+              "from": {
+                "location": "method",
+                "name": 1,
+                "ptr": "/return"
+              },
+              "to": {
+                "location": "outgoing",
+                "name": "accumulator",
+                "ptr": ""
+              }
+            },
+            {
+              "id": 5,
+              "type": "assign",
+              "from": {
+                "location": "incoming",
+                "name": "thisArg",
+                "ptr": "/0_currentValue"
+              },
+              "to": {
+                "location": "method",
+                "name": 1,
+                "ptr": "/args/3/value"
+              }
+            }
+          ],
+          "view": {
+            "col": 1,
+            "row": 6
+          },
+          "id": "ƒ_reduce_1",
+          "comments": []
+        }
+      ],
+      "name": "ƒ_reduce_1",
+      "steps": [
+        {
+          "id": 1,
+          "type": "method",
+          "library": "Array",
+          "method": "reduce",
+          "args": [
+            null,
+            "ƒ_reduce_1",
+            null,
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "accumulator",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/2/value"
+          }
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "accumulator",
+            "ptr": ""
+          }
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "thisArg",
+            "ptr": "/0_commands"
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/0/value"
+          }
+        },
+        {
+          "id": 5,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/3/value"
+          }
+        }
+      ],
+      "view": {
+        "col": 1,
+        "row": 6
+      },
+      "id": "ƒ_reduce_1",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 1,
+    "row": 5
+  },
+  "created": "2023-02-02T21:16:19.509Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-27T19:19:02.331Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
