@@ -1,0 +1,1740 @@
+{
+  "name": "Run Regional Hub File",
+  "type": "automation",
+  "tasks": {
+    "2284": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "mplsCommonResults",
+      "description": "mplsCommonResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.5401.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 0.9253731343283582,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "2337": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "buildRunRegionalHubJobDescription",
+      "description": "buildRunRegionalHubJobDescription",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e15fbf6cdd285d5d39a935",
+          "variableMap": {
+            "designations": "$var.3b35.response"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "jobDescription": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.3058823529411765,
+      "y": 0.5607675906183369,
+      "task_name": "buildRunRegionalHubJobDescription",
+      "retrySettings": null
+    },
+    "4676": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.30980392156862746,
+      "y": 1.5138592750533049,
+      "scheduled": false
+    },
+    "5401": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "MPLS Common Device Command Sets",
+      "description": "MPLS Common Device Command Sets",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runCommonDevicesCommandSets",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.mplsCommonDevicesCommandSets",
+          "transformation": "63db182799d6ef6162a28b54",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 0.9253731343283582
+    },
+    "6761": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "apicCommonResults",
+      "description": "apicCommonResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.c25a.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 1.2142857142857142,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "7641": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "apicUniqueResults",
+      "description": "apicUniqueResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.6d10.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 1.328358208955224,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "8730": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "JST Error Message",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.b6dd.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.5905882352941176,
+      "y": 0.9690831556503199,
+      "scheduled": false
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": -0.10745098039215686,
+      "y": 0.5607675906183369
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 1.4203921568627451,
+      "y": 0.5607675906183369
+    },
+    "73fe": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "error",
+          "value": true
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.008627450980392156,
+      "y": 0.5607675906183369
+    },
+    "b6dd": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "ParseRegionalHubData",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dab21199d6ef6162a28b4a",
+          "variableMap": {
+            "regionalHubData": "$var.job.regionalHubData"
+          },
+          "options": {
+            "extractOutput": false,
+            "validateIncoming": false,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "leafCommonDevicesCommandSets": null,
+          "leafUniqueDevicesCommands": null,
+          "spineCommonDevicesCommandSets": null,
+          "spineUniqueDevicesCommands": null,
+          "dciCommonDevicesCommandSets": null,
+          "dciUniqueDevicesCommands": null,
+          "internetCommonDevicesCommandSets": null,
+          "internetUniqueDevicesCommands": null,
+          "mplsCommonDevicesCommandSets": null,
+          "mplsUniqueDevicesCommands": null,
+          "apicCommonDevicesCommandSets": null,
+          "apicUniqueDevicesCommands": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.624313725490196,
+      "y": 0.5628997867803838,
+      "task_name": "ParseRegionalHubData",
+      "retrySettings": null
+    },
+    "b04": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Leaf Common Device Command Sets",
+      "description": "Leaf Common Device Command Sets",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runCommonDevicesCommandSets",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.leafCommonDevicesCommandSets",
+          "transformation": "63db182799d6ef6162a28b54",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": -0.2345415778251599
+    },
+    "d6cd": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Leaf Unique Devices Commands",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runUniqueDevicesCommands",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.leafUniqueDevicesCommands",
+          "transformation": "63db221a99d6ef6162a28b57",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": -0.1257995735607676
+    },
+    "d8a5": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Spine Common Device Command Sets",
+      "description": "Spine Common Device Command Sets",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runCommonDevicesCommandSets",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.spineCommonDevicesCommandSets",
+          "transformation": "63db182799d6ef6162a28b54",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 0.05970149253731343
+    },
+    "ed09": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Spine Unique Devices Commands",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runUniqueDevicesCommands",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.spineUniqueDevicesCommands",
+          "transformation": "63db221a99d6ef6162a28b57",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 0.1695095948827292
+    },
+    "55ae": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "DCI Common Device Command Sets",
+      "description": "DCI Common Device Command Sets",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runCommonDevicesCommandSets",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.dciCommonDevicesCommandSets",
+          "transformation": "63db182799d6ef6162a28b54",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 0.3742004264392324
+    },
+    "2bd3": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "DCI Unique Devices Commands",
+      "description": "DCI Unique Devices Commands",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runUniqueDevicesCommands",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.dciUniqueDevicesCommands",
+          "transformation": "63db221a99d6ef6162a28b57",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 0.48081023454157784
+    },
+    "75bf": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Internet Common Device Command Sets",
+      "description": "Internet Common Device Command Sets",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runCommonDevicesCommandSets",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.internetCommonDevicesCommandSets",
+          "transformation": "63db182799d6ef6162a28b54",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 0.6396588486140725
+    },
+    "11f2": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Internet Unique Devices Commands",
+      "description": "Internet Unique Devices Commands",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runUniqueDevicesCommands",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.internetUniqueDevicesCommands",
+          "transformation": "63db221a99d6ef6162a28b57",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 0.7484008528784648
+    },
+    "d620": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "MPLS Unique Devices Commands",
+      "description": "MPLS Unique Devices Commands",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runUniqueDevicesCommands",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.mplsUniqueDevicesCommands",
+          "transformation": "63db221a99d6ef6162a28b57",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 1.0309168443496801
+    },
+    "c25a": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "APIC Common Device Command Sets",
+      "description": "APIC Common Device Command Sets",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runCommonDevicesCommandSets",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.apicCommonDevicesCommandSets",
+          "transformation": "63db182799d6ef6162a28b54",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 1.2142857142857142
+    },
+    "6d10": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "APIC Unique Devices Commands",
+      "description": "APIC Unique Devices Commands",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "runUniqueDevicesCommands",
+          "variables": {
+            "filePath": {
+              "task": "3b35",
+              "value": "response"
+            }
+          },
+          "data_array": "$var.b6dd.apicUniqueDevicesCommands",
+          "transformation": "63db221a99d6ef6162a28b57",
+          "loopType": "parallel"
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.8611764705882353,
+      "y": 1.3198294243070363
+    },
+    "fa6e": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6290196078431373,
+      "y": 1.5159914712153517,
+      "scheduled": false
+    },
+    "987f": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.2666666666666666,
+      "y": 1.5159914712153517,
+      "scheduled": false
+    },
+    "5cef": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "mplsUniqueResults",
+      "description": "mplsUniqueResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.d620.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 1.0309168443496801,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "b6ea": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "internetUniqueResults",
+      "description": "internetUniqueResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.11f2.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 0.755863539445629,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "f759": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "internetCommonResults",
+      "description": "internetCommonResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.75bf.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 0.6492537313432836,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "20a9": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "dciUniqueResults",
+      "description": "dciUniqueResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.2bd3.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 0.48081023454157784,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "aea8": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "dciCommonResults",
+      "description": "dciCommonResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.55ae.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 0.3742004264392324,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "65d6": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "spineCommonResults",
+      "description": "spineCommonResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.d8a5.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 0.05970149253731343,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "2acd": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "spineUniqueResults",
+      "description": "spineUniqueResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.ed09.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": 0.1695095948827292,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "6cae": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "leafUniqueResults",
+      "description": "leafUniqueResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.d6cd.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": -0.1257995735607676,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "b6f6": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "leafCommonResults",
+      "description": "leafCommonResults",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dd5199be82950afcced645",
+          "variableMap": {
+            "childJobLoopDetails": "$var.b04.job_details"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.0345098039215685,
+      "y": -0.2345415778251599,
+      "task_name": "UpdateResultsObject",
+      "retrySettings": null
+    },
+    "c6d9": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "CreateResulsReport",
+      "description": "CreateResulsReport",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e0489fbe82950afcced649",
+          "variableMap": {
+            "leafCommonResults": "$var.b6f6.resultsObject",
+            "leafUniqueResults": "$var.6cae.resultsObject",
+            "spineCommonResults": "$var.65d6.resultsObject",
+            "spineUniqueResults": "$var.2acd.resultsObject",
+            "dciCommonResults": "$var.aea8.resultsObject",
+            "dciUniqueResults": "$var.20a9.resultsObject",
+            "internetCommonResults": "$var.f759.resultsObject",
+            "internetUniqueResults": "$var.b6ea.resultsObject",
+            "mplsCommonResults": "$var.2284.resultsObject",
+            "mplsUniqueResults": "$var.5cef.resultsObject",
+            "apicCommonResults": "$var.6761.resultsObject",
+            "apicUniqueResults": "$var.7641.resultsObject"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "results": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.2682352941176471,
+      "y": 0.5650319829424307,
+      "task_name": "CreateResulsReport",
+      "retrySettings": null
+    },
+    "272e": {
+      "name": "updateJobDescription",
+      "canvasName": "updateJobDescription",
+      "summary": "Update Job Description",
+      "description": "Overwrite the job description with a new one",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "description": "$var.2337.jobDescription"
+        },
+        "outgoing": {
+          "description": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.4752941176470588,
+      "y": 0.5607675906183369,
+      "scheduled": false
+    },
+    "b847": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "JST Error Message",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.2337.jobDescription"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.2980392156862745,
+      "y": 0.9946695095948828,
+      "scheduled": false
+    },
+    "a56c": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Report",
+      "description": "Send report to Job variable",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.c6d9.results"
+        },
+        "outgoing": {
+          "return_data": "$var.job.report"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.3607647547797175,
+      "y": 0.5596184419713831,
+      "scheduled": false
+    },
+    "3b35": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "tags",
+      "description": "tags",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": "$var.job.tags"
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.13176470588235295,
+      "y": 0.5565031982942431,
+      "scheduled": false
+    }
+  },
+  "transitions": {
+    "2284": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "2337": {
+      "272e": {
+        "type": "standard",
+        "state": "success"
+      },
+      "b847": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "4676": {
+      "fa6e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5401": {
+      "2284": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6224": {},
+    "6761": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "7641": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8730": {
+      "fa6e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "73fe": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "73fe": {
+      "3b35": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b6dd": {
+      "5401": {
+        "type": "standard",
+        "state": "success"
+      },
+      "8730": {
+        "type": "standard",
+        "state": "error"
+      },
+      "b04": {
+        "type": "standard",
+        "state": "success"
+      },
+      "d6cd": {
+        "type": "standard",
+        "state": "success"
+      },
+      "d8a5": {
+        "type": "standard",
+        "state": "success"
+      },
+      "ed09": {
+        "type": "standard",
+        "state": "success"
+      },
+      "55ae": {
+        "type": "standard",
+        "state": "success"
+      },
+      "2bd3": {
+        "type": "standard",
+        "state": "success"
+      },
+      "75bf": {
+        "type": "standard",
+        "state": "success"
+      },
+      "11f2": {
+        "type": "standard",
+        "state": "success"
+      },
+      "d620": {
+        "type": "standard",
+        "state": "success"
+      },
+      "c25a": {
+        "type": "standard",
+        "state": "success"
+      },
+      "6d10": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b04": {
+      "b6f6": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d6cd": {
+      "6cae": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "9b0a": {},
+    "d8a5": {
+      "65d6": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "ed09": {
+      "2acd": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "55ae": {
+      "aea8": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "2bd3": {
+      "20a9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "75bf": {
+      "f759": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "11f2": {
+      "b6ea": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d620": {
+      "5cef": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "c25a": {
+      "6761": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6d10": {
+      "7641": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "fa6e": {
+      "987f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "987f": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5cef": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b6ea": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "f759": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "20a9": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "aea8": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "65d6": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "2acd": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6cae": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b6f6": {
+      "c6d9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8a83": {},
+    "c6d9": {
+      "987f": {
+        "type": "standard",
+        "state": "error"
+      },
+      "a56c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "37da": {},
+    "272e": {
+      "b6dd": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b847": {
+      "4676": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "a56c": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "3b35": {
+      "2337": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "font_size": 12,
+  "last_updated": "2023-03-01T19:51:01.723Z",
+  "last_updated_by": {
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com",
+    "firstname": "Nick",
+    "inactive": false,
+    "email": ""
+  },
+  "lastUpdatedVersion": "5.40.5-2021.1.123.0",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "regionalHubData": {
+        "$id": "regionalHubData",
+        "type": "object",
+        "properties": {
+          "leaf": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "spine": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "dci": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "internet": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "mpls": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "apic": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          }
+        },
+        "required": []
+      },
+      "tags": {
+        "title": "response",
+        "type": "string",
+        "examples": [
+          "awesome"
+        ]
+      }
+    },
+    "required": [
+      "regionalHubData",
+      "tags"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "regionalHubData": {
+        "$id": "regionalHubData",
+        "type": "object",
+        "properties": {
+          "leaf": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "spine": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "dci": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "internet": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "mpls": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          },
+          "apic": {
+            "type": "object",
+            "properties": {
+              "commonDevicesCommandSets": {
+                "type": "array"
+              },
+              "uniqueDevicesCommands": {
+                "type": "array"
+              }
+            },
+            "required": []
+          }
+        },
+        "required": []
+      },
+      "tags": {
+        "title": "response",
+        "type": "string",
+        "examples": [
+          "awesome"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "errorMessage": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "error": {
+        "type": "boolean"
+      },
+      "report": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      }
+    }
+  },
+  "created": "2023-02-20T17:40:57.664Z",
+  "created_by": {
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com",
+    "firstname": "Nick",
+    "inactive": false,
+    "email": ""
+  },
+  "createdVersion": "5.40.5-2021.1.123.0",
+  "tags": [],
+  "groups": []
+}
