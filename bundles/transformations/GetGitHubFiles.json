@@ -1,0 +1,438 @@
+{
+  "_id": "63f3bcdc59b8702a8c6b78c9",
+  "name": "GetGitHubFiles",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "gitHubResp",
+      "type": "object",
+      "properties": {
+        "icode": {
+          "type": "string",
+          "examples": [
+            "AD%2E200"
+          ]
+        },
+        "response": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pathParam": {
+                "type": "string",
+                "examples": [
+                  "San Jose/%2EDS_Store"
+                ]
+              },
+              "pathParamQuery": {
+                "type": "string",
+                "examples": [
+                  "San Jose/%2EDS_Store"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "examples": [
+                  "%2EDS_Store"
+                ]
+              },
+              "sha": {
+                "type": "string",
+                "examples": [
+                  "5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+                ]
+              },
+              "size": {
+                "type": [
+                  "integer",
+                  "number"
+                ],
+                "examples": [
+                  6148
+                ]
+              },
+              "url": {
+                "type": "string",
+                "examples": [
+                  "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/%2EDS_Store?ref=main"
+                ]
+              },
+              "html_url": {
+                "type": "string",
+                "examples": [
+                  "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/%2EDS_Store"
+                ]
+              },
+              "git_url": {
+                "type": "string",
+                "examples": [
+                  "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+                ]
+              },
+              "download_url": {
+                "type": "string",
+                "examples": [
+                  "https://raw%2Egithubusercontent%2Ecom/NickAOrg/regions/main/San%20Jose/%2EDS_Store"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "examples": [
+                  "file"
+                ]
+              },
+              "_links": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "examples": [
+                      "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/%2EDS_Store?ref=main"
+                    ]
+                  },
+                  "git": {
+                    "type": "string",
+                    "examples": [
+                      "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+                    ]
+                  },
+                  "html": {
+                    "type": "string",
+                    "examples": [
+                      "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/%2EDS_Store"
+                    ]
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          },
+          "$id": "response"
+        }
+      },
+      "required": []
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "fileArray",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "method",
+      "library": "Array",
+      "method": "map",
+      "args": [
+        null,
+        "ƒ_map_1"
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "gitHubResp",
+        "ptr": "/response"
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/0/value"
+      }
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "fileArray",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "type": "object",
+          "properties": {
+            "pathParam": {
+              "type": "string",
+              "examples": [
+                "San Jose/%2EDS_Store"
+              ]
+            },
+            "pathParamQuery": {
+              "type": "string",
+              "examples": [
+                "San Jose/%2EDS_Store"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "examples": [
+                "%2EDS_Store"
+              ]
+            },
+            "sha": {
+              "type": "string",
+              "examples": [
+                "5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+              ]
+            },
+            "size": {
+              "type": [
+                "integer",
+                "number"
+              ],
+              "examples": [
+                6148
+              ]
+            },
+            "url": {
+              "type": "string",
+              "examples": [
+                "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/%2EDS_Store?ref=main"
+              ]
+            },
+            "html_url": {
+              "type": "string",
+              "examples": [
+                "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/%2EDS_Store"
+              ]
+            },
+            "git_url": {
+              "type": "string",
+              "examples": [
+                "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+              ]
+            },
+            "download_url": {
+              "type": "string",
+              "examples": [
+                "https://raw%2Egithubusercontent%2Ecom/NickAOrg/regions/main/San%20Jose/%2EDS_Store"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "examples": [
+                "file"
+              ]
+            },
+            "_links": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "examples": [
+                    "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/%2EDS_Store?ref=main"
+                  ]
+                },
+                "git": {
+                  "type": "string",
+                  "examples": [
+                    "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+                  ]
+                },
+                "html": {
+                  "type": "string",
+                  "examples": [
+                    "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/%2EDS_Store"
+                  ]
+                }
+              },
+              "required": []
+            }
+          },
+          "required": [],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pathParam": {
+                "type": "string",
+                "examples": [
+                  "San Jose/%2EDS_Store"
+                ]
+              },
+              "pathParamQuery": {
+                "type": "string",
+                "examples": [
+                  "San Jose/%2EDS_Store"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "examples": [
+                  "%2EDS_Store"
+                ]
+              },
+              "sha": {
+                "type": "string",
+                "examples": [
+                  "5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+                ]
+              },
+              "size": {
+                "type": [
+                  "integer",
+                  "number"
+                ],
+                "examples": [
+                  6148
+                ]
+              },
+              "url": {
+                "type": "string",
+                "examples": [
+                  "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/%2EDS_Store?ref=main"
+                ]
+              },
+              "html_url": {
+                "type": "string",
+                "examples": [
+                  "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/%2EDS_Store"
+                ]
+              },
+              "git_url": {
+                "type": "string",
+                "examples": [
+                  "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+                ]
+              },
+              "download_url": {
+                "type": "string",
+                "examples": [
+                  "https://raw%2Egithubusercontent%2Ecom/NickAOrg/regions/main/San%20Jose/%2EDS_Store"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "examples": [
+                  "file"
+                ]
+              },
+              "_links": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "examples": [
+                      "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/contents/San%20Jose/%2EDS_Store?ref=main"
+                    ]
+                  },
+                  "git": {
+                    "type": "string",
+                    "examples": [
+                      "https://api%2Egithub%2Ecom/repos/NickAOrg/regions/git/blobs/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+                    ]
+                  },
+                  "html": {
+                    "type": "string",
+                    "examples": [
+                      "https://github%2Ecom/NickAOrg/regions/blob/main/San%20Jose/%2EDS_Store"
+                    ]
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true,
+          "isThis": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "newValue",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "editable": true,
+          "$id": "newValue"
+        }
+      ],
+      "functions": [],
+      "name": "ƒ_map_1",
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/pathParam"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "newValue",
+            "ptr": ""
+          }
+        }
+      ],
+      "view": {
+        "col": 2,
+        "row": 4
+      },
+      "id": "ƒ_map_1",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-02-20T18:33:00.066Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-20T18:35:07.926Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
