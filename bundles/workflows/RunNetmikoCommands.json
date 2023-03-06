@@ -1,0 +1,1018 @@
+{
+  "name": "RunNetmikoCommands",
+  "type": "automation",
+  "tasks": {
+    "7645": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "CreateNetmikoInput",
+      "description": "CreateNetmikoInput",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63d966e399d6ef6162a28b40",
+          "variableMap": {
+            "commands": "$var.job.commands",
+            "host": "$var.job.host",
+            "deviceType": "$var.job.deviceType",
+            "port": "$var.job.port",
+            "username": "$var.job.username",
+            "password": "$var.job.password",
+            "fast_cli": false
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "netmikoSendCommandParameters": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.09860368113254266,
+      "y": 0.4253731343283582,
+      "task_name": "CapOneFormData",
+      "retrySettings": null
+    },
+    "7855": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Did command execute successfully?",
+      "description": "Did command execute successfully?",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "response.status",
+                  "operand_1": {
+                    "variable": "result",
+                    "task": "c2d0"
+                  },
+                  "operator": "!=",
+                  "operand_2": {
+                    "variable": "FAILURE",
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.6495769451773741,
+      "y": 0.4253731343283582
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": -0.6235294117647059,
+      "y": 0.4253731343283582
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.7725490196078432,
+      "y": 0.42430703624733473
+    },
+    "c2d0": {
+      "name": "netmikoSendCommand",
+      "canvasName": "netmikoSendCommand",
+      "summary": "netmiko send_command",
+      "description": "netmiko send_command",
+      "location": "Adapter",
+      "locationType": "AutomationGateway",
+      "app": "AutomationGateway",
+      "type": "automatic",
+      "displayName": "AutomationGateway",
+      "variables": {
+        "incoming": {
+          "netmikoSendCommandParameters": "$var.7645.netmikoSendCommandParameters",
+          "adapter_id": "DSUP IAG-2021.1"
+        },
+        "outgoing": {
+          "result": "$var.job.NetmikoResult"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.25320973924987034,
+      "y": 0.4253731343283582,
+      "scheduled": false
+    },
+    "6c3e": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "error",
+          "value": false
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.5190409989110502,
+      "y": 0.4253731343283582
+    },
+    "c7c2": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "error",
+          "value": true
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.7654901960784314,
+      "y": 0.7185501066098081
+    },
+    "797f": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Netmiko Error Message",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.error_msg",
+          "obj": "$var.c2d0.result"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.6541176470588236,
+      "y": 0.5671641791044776,
+      "scheduled": false
+    },
+    "cbe2": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Netmiko Error Message",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.c2d0.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.2541176470588235,
+      "y": 0.5671641791044776,
+      "scheduled": false
+    },
+    "f78": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.7645.netmikoSendCommandParameters"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.09647058823529411,
+      "y": 0.5671641791044776,
+      "scheduled": false
+    },
+    "bec6": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6580392156862745,
+      "y": 0.7196162046908315,
+      "scheduled": false
+    },
+    "af1b": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.2690196078431373,
+      "y": 0.7196162046908315,
+      "scheduled": false
+    },
+    "1ea9": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.1011764705882353,
+      "y": 0.7196162046908315,
+      "scheduled": false
+    },
+    "6f7": {
+      "name": "updateJobDescription",
+      "canvasName": "updateJobDescription",
+      "summary": "Update Job Description",
+      "description": "Update Job Description",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "description": "$var.b140.jobDescription"
+        },
+        "outgoing": {
+          "description": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.246260252831879,
+      "y": 0.4253731343283582,
+      "scheduled": false
+    },
+    "b140": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "buildJobDescription",
+      "description": "buildJobDescription",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63dc32dcbe82950afcced644",
+          "variableMap": {
+            "device": "$var.job.host",
+            "commands": "$var.job.commands",
+            "designations": "$var.job.designations"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "jobDescription": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.3888401681556634,
+      "y": 0.4253731343283582,
+      "task_name": "buildJobDescription",
+      "retrySettings": null
+    },
+    "38cd": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "JST Error Message",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.b140.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.3905882352941176,
+      "y": 0.5671641791044776,
+      "scheduled": false
+    },
+    "7e75": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": -0.3905882352941176,
+      "y": 0.7196162046908315,
+      "scheduled": false
+    },
+    "50ab": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "createResultObjectFromNetmikoResult",
+      "description": "createResultObjectFromNetmikoResult",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e0439fbe82950afcced648",
+          "variableMap": {
+            "netmikoResult": "$var.c2d0.result"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.4415412905551958,
+      "y": 0.4253731343283582,
+      "task_name": "createResultObject",
+      "retrySettings": null
+    },
+    "8bf7": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "resultsObject",
+      "description": "set resultsObject job variable",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.50ab.resultsObject"
+        },
+        "outgoing": {
+          "return_data": "$var.job.resultsObject"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.5778467005629379,
+      "y": 0.4253731343283582,
+      "scheduled": false
+    },
+    "d5fa": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.50ab.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.44392156862745097,
+      "y": 0.5671641791044776,
+      "scheduled": false
+    },
+    "cacc": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.4454901960784314,
+      "y": 0.7196162046908315,
+      "scheduled": false
+    },
+    "a5d": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "createResultObject",
+      "description": "createResultObject",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e056aabe82950afcced64a",
+          "variableMap": {
+            "commands": "$var.job.commands",
+            "device": "$var.job.host"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "resultsObject": null
+        },
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.10472608814477499,
+      "y": 0.4253731343283582,
+      "task_name": "createResultObject",
+      "retrySettings": null
+    },
+    "441e": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "resultsObject",
+      "description": "set resultsObject job variable",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.a5d.resultsObject"
+        },
+        "outgoing": {
+          "return_data": "$var.job.resultsObject"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.003976235687201489,
+      "y": 0.4253731343283582,
+      "scheduled": false
+    },
+    "d9fa": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "JST Error Message",
+      "description": "JST Error Message",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "",
+          "obj": "$var.a5d.error"
+        },
+        "outgoing": {
+          "return_data": "$var.job.errorMessage"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": -0.10588235294117647,
+      "y": 0.5671641791044776,
+      "scheduled": false
+    },
+    "7a85": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "Error Handler",
+      "description": "Error Handler",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": -0.10588235294117647,
+      "y": 0.7196162046908315,
+      "scheduled": false
+    }
+  },
+  "transitions": {
+    "7645": {
+      "c2d0": {
+        "type": "standard",
+        "state": "success"
+      },
+      "f78": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "7855": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      },
+      "797f": {
+        "type": "standard",
+        "state": "failure"
+      }
+    },
+    "workflow_start": {
+      "6c3e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "64a8": {},
+    "c2d0": {
+      "cbe2": {
+        "type": "standard",
+        "state": "error"
+      },
+      "50ab": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6c3e": {
+      "b140": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "c7c2": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "797f": {
+      "bec6": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "cbe2": {
+      "af1b": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "f78": {
+      "1ea9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "bec6": {
+      "c7c2": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "af1b": {
+      "cacc": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "1ea9": {
+      "af1b": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6f7": {
+      "a5d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b140": {
+      "6f7": {
+        "type": "standard",
+        "state": "success"
+      },
+      "38cd": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "38cd": {
+      "7e75": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "7e75": {
+      "7a85": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "50ab": {
+      "8bf7": {
+        "type": "standard",
+        "state": "success"
+      },
+      "d5fa": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "8bf7": {
+      "7855": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d5fa": {
+      "cacc": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "cacc": {
+      "bec6": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "a5d": {
+      "441e": {
+        "type": "standard",
+        "state": "success"
+      },
+      "d9fa": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "441e": {
+      "7645": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d9fa": {
+      "7a85": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "7a85": {
+      "1ea9": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "font_size": 12,
+  "last_updated": "2023-02-20T19:54:47.737Z",
+  "last_updated_by": {
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com",
+    "firstname": "Nick",
+    "inactive": false,
+    "email": ""
+  },
+  "lastUpdatedVersion": "5.40.5-2021.1.123.0",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "commands": {
+        "$id": "commands",
+        "type": "array"
+      },
+      "host": {
+        "$id": "host",
+        "type": "string"
+      },
+      "deviceType": {
+        "$id": "deviceType",
+        "type": "string"
+      },
+      "port": {
+        "$id": "port",
+        "type": "number"
+      },
+      "username": {
+        "$id": "username",
+        "type": "string"
+      },
+      "password": {
+        "$id": "password",
+        "type": "string"
+      },
+      "designations": {
+        "$id": "designations",
+        "type": "string"
+      }
+    },
+    "required": [
+      "commands",
+      "host",
+      "deviceType",
+      "port",
+      "username",
+      "password",
+      "designations"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "commands": {
+        "$id": "commands",
+        "type": "array"
+      },
+      "host": {
+        "$id": "host",
+        "type": "string"
+      },
+      "deviceType": {
+        "$id": "deviceType",
+        "type": "string"
+      },
+      "port": {
+        "$id": "port",
+        "type": "number"
+      },
+      "username": {
+        "$id": "username",
+        "type": "string"
+      },
+      "password": {
+        "$id": "password",
+        "type": "string"
+      },
+      "designations": {
+        "$id": "designations",
+        "type": "string"
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "NetmikoResult": {
+        "title": "result",
+        "type": "object"
+      },
+      "error": {
+        "type": "boolean"
+      },
+      "errorMessage": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "resultsObject": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      }
+    }
+  },
+  "created": "2023-02-01T19:55:52.557Z",
+  "created_by": {
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com",
+    "firstname": "Nick",
+    "inactive": false,
+    "email": ""
+  },
+  "createdVersion": "5.40.5-2021.1.123.0",
+  "canvasVersion": 1,
+  "tags": [],
+  "groups": []
+}
