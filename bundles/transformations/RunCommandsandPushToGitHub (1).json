@@ -1,0 +1,201 @@
+{
+  "_id": "63dad6d999d6ef6162a28b4f",
+  "name": "RunCommandsandPushToGitHub (1)",
+  "description": "equires all job variables for job run.",
+  "incoming": [
+    {
+      "$id": "currentValue",
+      "type": [
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string"
+      ],
+      "$immutable": true
+    },
+    {
+      "$id": "filePath",
+      "type": "string"
+    },
+    {
+      "$id": "device",
+      "type": "string"
+    },
+    {
+      "$id": "deviceType",
+      "type": "string"
+    },
+    {
+      "$id": "port",
+      "type": "number"
+    },
+    {
+      "$id": "username",
+      "type": "string"
+    },
+    {
+      "$id": "password",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "commands",
+      "type": "array",
+      "$immutable": true
+    },
+    {
+      "$id": "filePath",
+      "type": "string",
+      "$immutable": true
+    },
+    {
+      "$id": "device",
+      "type": "string",
+      "$immutable": true
+    },
+    {
+      "$id": "deviceType",
+      "type": "string",
+      "$immutable": true
+    },
+    {
+      "$id": "port",
+      "type": "number",
+      "$immutable": true
+    },
+    {
+      "$id": "username",
+      "type": "string",
+      "$immutable": true
+    },
+    {
+      "$id": "password",
+      "type": "string",
+      "$immutable": true
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "currentValue",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "commands",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "filePath",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "filePath",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "username",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "username",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 4,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "password",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "password",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 5,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "device",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "device",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 6,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "deviceType",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "deviceType",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 7,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "port",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "port",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [],
+  "comments": [],
+  "view": {
+    "col": 0,
+    "row": 5
+  },
+  "created": "2023-02-02T21:16:19.510Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-27T20:03:53.468Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
