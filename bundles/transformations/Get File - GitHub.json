@@ -1,0 +1,131 @@
+{
+  "_id": "63f3bde559b8702a8c6b78ca",
+  "name": "Get File - GitHub",
+  "incoming": [
+    {
+      "$id": "currentValue",
+      "type": [
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string"
+      ],
+      "$immutable": true
+    },
+    {
+      "$id": "repoName",
+      "type": "string"
+    },
+    {
+      "$id": "repoOwner",
+      "type": "string"
+    },
+    {
+      "$id": "branchName",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "filePath",
+      "type": "string",
+      "$immutable": true
+    },
+    {
+      "$id": "repoName",
+      "type": "string",
+      "$immutable": true
+    },
+    {
+      "$id": "repoOwner",
+      "type": "string",
+      "$immutable": true
+    },
+    {
+      "$id": "branchName",
+      "type": "string",
+      "$immutable": true
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "currentValue",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "filePath",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "branchName",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "branchName",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "repoOwner",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "repoOwner",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 4,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "repoName",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "repoName",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [],
+  "comments": [],
+  "view": {
+    "col": 0,
+    "row": 5
+  },
+  "created": "2023-02-20T18:37:25.024Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-20T18:38:39.543Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
