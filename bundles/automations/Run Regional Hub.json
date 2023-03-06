@@ -1,0 +1,39 @@
+{
+  "_id": "63e14a2a2731730b24e35c70",
+  "name": "Run Regional Hub",
+  "description": "",
+  "componentName": "Run Regional Hub",
+  "componentType": "workflows",
+  "gbac": {
+    "write": [],
+    "read": []
+  },
+  "created": "2023-02-06T18:42:50.025Z",
+  "createdBy": "nick.andreano@itential.com",
+  "lastUpdated": "2023-02-06T18:42:57.536Z",
+  "lastUpdatedBy": "nick.andreano@itential.com",
+  "triggers": [
+    {
+      "_id": "63e14ba72731730b24e35c71",
+      "created": "2023-02-06T18:49:10.961Z",
+      "createdBy": "nick.andreano@itential.com",
+      "lastUpdated": "2023-03-01T19:44:19.142Z",
+      "lastUpdatedBy": "nick.andreano@itential.com",
+      "name": "Manual",
+      "type": "manual",
+      "enabled": true,
+      "actionType": "automations",
+      "actionId": "63e14a2a2731730b24e35c70",
+      "formId": "Run Regional Hub",
+      "formData": {
+        "tags": [
+          {
+            "designation": "first run"
+          }
+        ],
+        "region": "San Jose"
+      },
+      "formSchemaHash": "21ea1801961e69b921217d421b9dcfc543379ec3b44d68279bd55888bb6aaabc"
+    }
+  ]
+}
