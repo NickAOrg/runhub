@@ -1,0 +1,85 @@
+{
+  "_id": "63f3cc3a59b8702a8c6b78cd",
+  "name": "Run Regional Hub File (1)",
+  "incoming": [
+    {
+      "$id": "currentValue",
+      "type": [
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string"
+      ],
+      "$immutable": true
+    },
+    {
+      "$id": "tags",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "regionalHubData",
+      "type": "object",
+      "$immutable": true
+    },
+    {
+      "$id": "tags",
+      "type": "string",
+      "$immutable": true
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "tags",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "tags",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "currentValue",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "regionalHubData",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [],
+  "comments": [],
+  "view": {
+    "col": 0,
+    "row": 5
+  },
+  "created": "2023-02-20T19:38:34.469Z",
+  "createdBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "lastUpdated": "2023-02-20T19:39:01.202Z",
+  "lastUpdatedBy": {
+    "_id": "6192b69c3adad129b3c1881c",
+    "provenance": "Itential-Okta",
+    "username": "nick.andreano@itential.com"
+  },
+  "version": "3.17.7-2021.1.22",
+  "tags": []
+}
